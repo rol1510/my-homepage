@@ -1,6 +1,7 @@
 import React from "react";
-import LandingPage from "./pages/LandingPage";
 import NavBar from "./components/NavBar";
+import LandingPage from "./pages/LandingPage";
+import ContactPage from "./pages/ContactPage";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function App() {
         <Switch>
           <Route exact path="/test" component={Test} />
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/contact" component={ContactPage} />
           <Route component={Error404} />
         </Switch>
       </Router>

@@ -1,20 +1,57 @@
 import React from "react";
+import emailjs from "emailjs-com";
+import secrets from "../secrets";
 
 class ContactPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: "", email: "", message: "" };
+    this.state = {
+      requestDone: true,
+      formData: { name: "", email: "", message: "" },
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  sendEmail(from_name, from_email, message) {
+    if (this.state.requestDone === false) return;
+    this.setState({ requestDone: false });
+
+    emailjs
+      .send(
+        secrets.EMAILJS_SERVICE_ID,
+        secrets.EMAILJS_TEMPLATE_ID,
+        {
+          from_name: from_name,
+          from_email: from_email,
+          message: message,
+        },
+        secrets.EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
+          console.log(result);
+          this.setState({ requestDone: true });
+        },
+        (error) => {
+          console.log(error);
+          this.setState({ requestDone: true });
+        }
+      );
+  }
+
   handleChange(event) {
-    if (Object.getOwnPropertyNames(this.state).includes(event.target.name)) {
-      const data = {};
+    console.log(Object.getOwnPropertyNames(this.state.formData));
+    if (
+      Object.getOwnPropertyNames(this.state.formData).includes(
+        event.target.name
+      )
+    ) {
+      const data = { ...this.state.formData };
       data[event.target.name] = event.target.value;
-      this.setState(data);
+      this.setState({ formData: data });
     } else {
       throw new Error(
         "A Change event was fired, but input name '" +
@@ -25,7 +62,13 @@ class ContactPage extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("hi");
+    console.log("Submit clicked");
+    // TODO: Verify Form content
+    this.sendEmail(
+      this.state.formData.name,
+      this.state.formData.email,
+      this.state.formData.message
+    );
   }
 
   render() {
@@ -80,9 +123,10 @@ class ContactPage extends React.Component {
 
         {/* Debug Output of the input */}
         {/* <p className="m-16"></p>
-        <p>Name: {this.state.name}</p>
-        <p>E-Mail: {this.state.email}</p>
-        <p>Message: {this.state.message}</p> */}
+        <p>Name: {this.state.formData.name}</p>
+        <p>E-Mail: {this.state.formData.email}</p>
+        <p>Message: {this.state.formData.message}</p>
+        <p>{this.state.requestDone ? "done" : "blocked"}</p> */}
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import profileImg from "../imgs/Foto-2020-2.png";
 // import profileImg from "../imgs/Foto-2020.jpg";
 
@@ -67,7 +66,6 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
         <MeCard />
         <div className="flex flex-col lg:flex-row">
           <Card title="About Me">

@@ -73,8 +73,12 @@ class ContactPage extends React.Component {
   }
 
   render() {
-    const inputboxFormatting =
-      "px-2 py-1 m-2 my-3 ml-0 w-full shadow rounded font-round";
+    const inputboxFormatting = `
+      px-2 py-1 m-2 my-3 ml-0 w-full
+      shadow rounded font-round
+      outline-none border-2 border-transparent focus:border-blue-500`;
+
+    const email = "roland.strasser.01@gmail.com";
 
     return (
       <div
@@ -124,6 +128,13 @@ class ContactPage extends React.Component {
             </button>
           </div>
         </from>
+
+        <p className="mt-8 mb-0 text-md text-gray-700 font-round">
+          E-Mail
+          <a className="ml-5 hover:underline" href={`mailto:${email}`}>
+            {email}
+          </a>
+        </p>
 
         {/* Debug Output of the input */}
         {/* <p className="m-16"></p>

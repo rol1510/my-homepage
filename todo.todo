@@ -1,3 +1,14 @@
+General:
+  ☐ translation
+  ☐ hosting
+  ☐ put email in secrets. I mean , it's to late but why not
+  ☐ check if flalticon.com needs a reference ore something to be legal
+  ☐ refactor the page links. They are now copy pasted in three different spots
+
+Fix:
+  ☐ contact page: email text wraps weirdly on moblie
+  ☐ mobile zoom is weird + page extends to the left issue
+
 Home:
   ☐ visuals
 
@@ -10,6 +21,12 @@ Contact Page:
   ☐ Feedback success/failure
   ✔ add contact information @done(21-09-19 10:07)
 
+Resources:
+  ☐ download cv
+  ☐ link diplomarbeit
+  ☐ link github
+  ☐ link linkedIN
+
 NavBar:
   ✔ visuals @done(21-09-19 09:50)
   ✔ responsive @done(21-09-19 09:51)
@@ -17,7 +34,28 @@ NavBar:
   ☐ nicer animations on mobile pop-up
 
 Footer:
-  ☐ create
+  ☐ create @started(21-09-19 10:29)
+  ☐ copyright notice
+  ☐ contact email
+  ☐ link github
+  ☐ link linkedIN
 
 Impressum:
   ☐ create
+
+404 Page:
+  ☐ simple visuals
+
+
+
+
+  
+
+
+
+To Include:
+  <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+

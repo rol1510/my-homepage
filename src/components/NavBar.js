@@ -5,7 +5,7 @@ import Media from "react-media";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: true };
+    this.state = { expanded: false };
 
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
   }
@@ -45,13 +45,19 @@ class NavBar extends React.Component {
                 {(matches.medium || matches.large) && (
                   <div className="flex justify-between items-center">
                     <Link to="/contact">
-                      <p className="ml-16 text-gray-600">Contact</p>
+                      <p className="ml-16 text-gray-600 hover:underline">
+                        Contact
+                      </p>
                     </Link>
                     <Link to="/resources">
-                      <p className="ml-16 text-gray-600">Resources</p>
+                      <p className="ml-16 text-gray-600 hover:underline">
+                        Resources
+                      </p>
                     </Link>
                     <Link to="/samples">
-                      <p className="ml-16 text-gray-600">Samples</p>
+                      <p className="ml-16 text-gray-600 hover:underline">
+                        Samples
+                      </p>
                     </Link>
                   </div>
                 )}
@@ -81,15 +87,15 @@ class NavBar extends React.Component {
                                  animate-appear"
                   >
                     <Link to="/contact">
-                      <p className="text-gray-600">Contact</p>
+                      <p className="text-gray-600 hover:underline">Contact</p>
                     </Link>
                     <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
                     <Link to="/resources">
-                      <p className="text-gray-600">Resources</p>
+                      <p className="text-gray-600 hover:underline">Resources</p>
                     </Link>
                     <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
                     <Link to="/samples">
-                      <p className="text-gray-600">Samples</p>
+                      <p className="text-gray-600 hover:underline">Samples</p>
                     </Link>
                   </div>
                 )}

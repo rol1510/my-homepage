@@ -6,6 +6,21 @@ module.exports = {
       fontFamily: {
         round: ["Nunito"],
       },
+      animation: {
+        wiggle: "wiggle 2s ease-in-out 1",
+        appear: "appear 250ms ease-in-out 1",
+      },
+      keyframes: {
+        wiggle: {
+          "0% 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(-3deg)" },
+          "75%": { transform: "rotate(3deg)" },
+        },
+        appear: {
+          "0%": { "transform-origin": "top right", transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
     },
   },
   variants: {

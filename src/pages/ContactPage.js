@@ -64,6 +64,7 @@ class ContactPage extends React.Component {
   handleSubmit(event) {
     console.log("Submit clicked");
     // TODO: Verify Form content
+    // TODO: Feedback on E-Mail send functionality
     this.sendEmail(
       this.state.formData.name,
       this.state.formData.email,
@@ -76,7 +77,10 @@ class ContactPage extends React.Component {
       "px-2 py-1 m-2 my-3 ml-0 w-full shadow rounded font-round";
 
     return (
-      <div className="bg-gray-100 w-2/3 m-auto p-6 shadow-md rounded-xl">
+      <div
+        className="bg-gray-100 p-6 shadow-md rounded-xl
+        mx-5 mt-6 md:mt-14 md:m-auto md:w-2/3 lg:w-1/3"
+      >
         <p className="mt-2 mb-4 text-center text-2xl font-round">Contact Me!</p>
 
         {/* form onSubmit is not working for some reason */}
@@ -93,7 +97,7 @@ class ContactPage extends React.Component {
             className={inputboxFormatting}
             type="email"
             name="email"
-            placeholder="E-Mail"
+            placeholder="Your E-Mail"
             onChange={this.handleChange}
           />
 

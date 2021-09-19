@@ -1,18 +1,10 @@
 import React from "react";
 import LandingPage from "./pages/LandingPage";
 import ContactPage from "./pages/ContactPage";
+import ErrorPage from "./pages/ErrorPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-function Error404(props) {
-  return (
-    <div>
-      <p>Error 404. Page not found Sorry!</p>
-    </div>
-  );
-}
 
 function Test(props) {
   return (
@@ -33,7 +25,9 @@ function App() {
               <Route exact path="/test" component={Test} />
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/contact" component={ContactPage} />
-              <Route component={Error404} />
+              <Route>
+                <ErrorPage message="404, Page not found" />
+              </Route>
             </Switch>
           </div>
           <Footer />

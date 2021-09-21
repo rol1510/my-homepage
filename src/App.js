@@ -5,6 +5,8 @@ import ErrorPage from "./pages/ErrorPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Test(props) {
   return (
@@ -17,6 +19,8 @@ function Test(props) {
 function App() {
   return (
     <div className="App">
+      <ToastContainer position="top-center" />
+
       <Router>
         <div className="flex flex-col h-screen">
           <NavBar />

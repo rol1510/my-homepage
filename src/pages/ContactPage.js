@@ -3,32 +3,20 @@ import emailjs from "emailjs-com";
 import secrets from "../secrets";
 import { Formik, Field, Form, useField } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
-function sendEmail(from_name, from_email, message) {
-  if (this.state.requestDone === false) return;
-  this.setState({ requestDone: false });
-
-  emailjs
-    .send(
-      secrets.EMAILJS_SERVICE_ID,
-      secrets.EMAILJS_TEMPLATE_ID,
-      {
-        from_name: from_name,
-        from_email: from_email,
-        message: message,
-      },
-      secrets.EMAILJS_USER_ID
-    )
-    .then(
-      (result) => {
-        console.log(result);
-        this.setState({ requestDone: true });
-      },
-      (error) => {
-        console.log(error);
-        this.setState({ requestDone: true });
-      }
-    );
+// TODO: Move sanitize into a global file
+function sanitize(string) {
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#x27;",
+    "/": "&#x2F;",
+  };
+  const reg = /[&<>"'/]/gi;
+  return string.replace(reg, (match) => map[match]);
 }
 
 function MyTextInput({ label, ...props }) {
@@ -60,12 +48,49 @@ class ContactPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { blockSubmit: false };
+    this.state = { blockSubmit: false, requestDone: true };
   }
-  // const inputboxFormatting = `
-  //     px-2 py-1 m-2 my-3 ml-0 w-full
-  //     shadow rounded font-round
-  //     outline-none border-2 border-transparent focus:border-blue-500`;
+
+  sendEmail(from_name, from_email, message) {
+    if (this.state.requestDone === false) return;
+    this.setState({ requestDone: false });
+
+    // escape all possible user entered html, so we can - more or less - savely
+    // use the <br/> tag for the email message preview
+    // from_name + from_email will be escaped on emailjs's side
+    message = sanitize(message).replaceAll("\n", "<br/>");
+
+    toast
+      .promise(
+        emailjs.send(
+          secrets.EMAILJS_SERVICE_ID,
+          secrets.EMAILJS_TEMPLATE_ID,
+          {
+            from_name: from_name,
+            from_email: from_email,
+            message: message,
+          },
+          secrets.EMAILJS_USER_ID
+        ),
+        {
+          pending: "Sending E-Mail",
+          success: "E-Mail Successful 👌",
+          error: "Sending failed 😢",
+        }
+      )
+      .then(
+        (result) => {
+          console.log(result);
+          this.setState({ requestDone: true });
+        },
+        (error) => {
+          console.log(error);
+          // unblock submit button if the email fails
+          this.setState({ requestDone: true, blockSubmit: false });
+        }
+      );
+  }
+
   render() {
     return (
       <div
@@ -73,14 +98,21 @@ class ContactPage extends React.Component {
         mx-5 mt-6 md:mt-14 md:m-auto md:w-2/3 lg:w-1/3"
       >
         <p className="mt-2 mb-4 text-center text-2xl font-round">Contact Me!</p>
+        <button
+          onClick={() => {
+            toast.success("Yes!");
+          }}
+        >
+          Toast Tester
+        </button>
 
         {/* form onSubmit is not working for some reason */}
 
         <Formik
           initialValues={{
-            name: "a",
-            email: "c@c.c",
-            message: "b",
+            name: "",
+            email: "",
+            message: "",
           }}
           validationSchema={Yup.object({
             name: Yup.string()
@@ -94,17 +126,15 @@ class ContactPage extends React.Component {
               .required("Enter your Message"),
           })}
           onSubmit={(values, actions) => {
+            // block all further submits
+            // Submit can only be clicked once. exception: email fails
             if (this.state.blockSubmit) return;
-            this.setState({ blockSubmit: true }); // block further submits
+            this.setState({ blockSubmit: true });
 
             console.log("submit");
-            setTimeout(() => {
-              // alert(JSON.stringify(values, null, 2));
+            actions.setSubmitting(false);
 
-              // unblock if submit was fine
-              actions.setSubmitting(false);
-              this.setState({ blockSubmit: false });
-            }, 1000);
+            this.sendEmail(values.name, values.email, values.message);
           }}
         >
           {(formik) => (
@@ -128,23 +158,22 @@ class ContactPage extends React.Component {
                 name="message"
                 as="textarea"
                 type="text"
-                placeholder="jane@gmail.com"
+                placeholder="Your message here ..."
                 rows="6"
               />
 
               <div className="mt-5 flex justify-center">
                 <button
                   className={`px-6 py-2
-                         bg-blue-700 border-2 border-blue-700
-                         rounded-full shadow-lg
-                         text-white font-bold font-round
-                         cursor-pointer
-                         transform transition hover:scale-110
-                         ${
-                           this.state.blockSubmit
-                             ? "bg-blue-900 border-blue-900"
-                             : ""
-                         }`}
+                              border-2 rounded-full shadow-lg
+                              text-white font-bold font-round
+                              cursor-pointer
+                              transform transition hover:scale-110
+                              ${
+                                this.state.blockSubmit
+                                  ? "bg-gray-600 border-gray-600"
+                                  : "bg-blue-700 border-blue-700"
+                              }`}
                   type="submit"
                 >
                   Submit
@@ -169,33 +198,3 @@ class ContactPage extends React.Component {
 }
 
 export default ContactPage;
-
-// handleChange(event) {
-//   console.log(Object.getOwnPropertyNames(this.state.formData));
-//   if (
-//     Object.getOwnPropertyNames(this.state.formData).includes(
-//       event.target.name
-//     )
-//   ) {
-//     const data = { ...this.state.formData };
-//     data[event.target.name] = event.target.value;
-//     this.setState({ formData: data });
-//   } else {
-//     throw new Error(
-//       "A Change event was fired, but input name '" +
-//         event.target.name +
-//         "' unknown"
-//     );
-//   }
-// }
-
-// handleSubmit(event) {
-//   console.log("Submit clicked");
-//   // TODO: Verify Form content
-//   // TODO: Feedback on E-Mail send functionality
-//   this.sendEmail(
-//     this.state.formData.name,
-//     this.state.formData.email,
-//     this.state.formData.message
-//   );
-// }

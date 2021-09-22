@@ -1,34 +1,40 @@
 import React from "react";
 import profileImg from "../imgs/Foto-2020-2.png";
-// import profileImg from "../imgs/Foto-2020.jpg";
+import skillsImg from "../imgs/skills.png";
+import skills2Img from "../imgs/skills-2.png";
+import educationImg from "../imgs/education.png";
 
 function MeCard(props) {
   return (
     <div className="my-8 md:my-16 flex justify-center">
       <div className="">
         <div className="flex items-center">
-          <div className="overflow-hidden rounded-full w-52 h-52 border-4 border-gray-500 shadow-md">
+          <div
+            className="overflow-hidden rounded-full w-56 h-56 border-4
+                       border-gray-500 shadow-md"
+          >
             <img
               className="relative -top-2 object-cover"
               src={profileImg}
-              alt="Of Roland in suite"
+              alt="Roland in suite"
             />
           </div>
-          <div className="ml-5">
-            <h1 className="text-3xl font-round mb-2">Roland Strasser</h1>
-            <p className="text-md font-round text-gray-500">
-              Student TU-Wien | Full-Stack Entwickler
+          <div className="ml-8">
+            <p className="text-3xl font-round mb-4">Hallo! 😃</p>
+            <p>
+              <span className="text-2xl font-round mb-2 text-gray-800">
+                {/* {"Ich heiße"} */}
+              </span>
+              <span className="text-4xl font-round mb-2 text-blue-700 font-bold">
+                {" Roland Strasser"}
+              </span>
             </p>
-            <div className="flex justify-between">
-              <p className="text-md font-round">19 Jahre</p>
-              <p className="text-md font-round">Östrreich</p>
-            </div>
-            <a
-              className="text-md font-round"
-              href="mailto:roland.strasser.01@gmail.com"
-            >
-              roland.strasser.01@gmail.com
-            </a>
+            <p className="text-md font-round text-gray-500">
+              Student TU-Wien | Front-End Entwickler
+            </p>
+            <p className="text-md font-round text-gray-500">
+              Links Github LinkedIn
+            </p>
           </div>
         </div>
       </div>
@@ -38,16 +44,35 @@ function MeCard(props) {
 
 function Card(props) {
   return (
-    <div className="lg:w-full m-6 p-4 border-2 rounded-md shadow-md">
-      <div>
-        <div
-          className="relative -inset-6 bg-blue-700 rounded-md shadow p-2 pl-4
-                        text-xl font-round text-white text-center"
-        >
-          {props.title}
+    <div className="w-full lg:w-250 m-6 bg-white rounded-md shadow-md">
+      <div className="w-full relative">
+        <div className={`absolute ${props.isInverted ? "right-0" : ""}`}>
+          <div
+            className={`relative w-64 py-3
+                       bg-blue-700 rounded-md shadow
+                       text-2xl font-bold font-round text-white text-center
+                       ${
+                         props.isInverted ? "inset-x-2 -inset-y-2" : "-inset-2"
+                       }`}
+          >
+            {props.title}
+          </div>
         </div>
       </div>
-      {props.children}
+
+      <div className="flex justify-between p-4">
+        {props.isInverted && (
+          <div className="w-1/2 flex items-center">
+            <img src={props.img} className="rounded shadow" />
+          </div>
+        )}
+        <div className="px-4 pt-12 w-full">{props.children}</div>
+        {!props.isInverted && (
+          <div className="w-1/2 flex items-center">
+            <img src={props.img} className="rounded shadow" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -62,13 +87,38 @@ function EduEntry(props) {
   );
 }
 
+function TimelineComp(props) {
+  return (
+    <li className="mt-3">
+      <div className="flex items-center">
+        <div
+          className="w-6 h-6 ml-4 mr-7 flex-shrink-0 
+                     border-4 border-blue-700 rounded-full"
+        />
+        <div>
+          <p className="font-round text-lg font-bold">{props.title}</p>
+          <p className="font-round text-sm text-gray-800 -mt-1">{props.time}</p>
+          <p className="font-round text-md">{props.children}</p>
+        </div>
+      </div>
+    </li>
+  );
+}
+
+function Timeline(props) {
+  return <ul>{props.children}</ul>;
+}
+
 class LandingPage extends React.Component {
   render() {
     return (
       <div>
         <MeCard />
-        <div className="flex flex-col lg:flex-row">
-          <Card title="About Me">
+        <div
+          className="angle-top pt-40 pb-40
+                     bg-gray-200 flex flex-col items-center px-10"
+        >
+          <Card title="About Me" img={skillsImg}>
             <p>
               <strong>Hallo!</strong> <br />
               Ich heiße Roland, bin 19 Jahre alt und habe Spaß an der
@@ -81,7 +131,7 @@ class LandingPage extends React.Component {
               dem Verdienst mein Studium zu unterstützen.
             </p>
           </Card>
-          <Card title="Skills">
+          <Card title="Skills" img={skills2Img} isInverted={true}>
             <div className="flex">
               <div className="w-full">
                 <h1 className="text-xl">Kenntnisse</h1>
@@ -106,29 +156,45 @@ class LandingPage extends React.Component {
               </div>
             </div>
           </Card>
-        </div>
 
-        <div className="flex flex-col lg:flex-row">
-          <Card title="Bildung">
-            <div>
-              <EduEntry
-                title="HTL1 Lastenstraße - Fachgebiet Mechatronik"
-                timespan="2016 - 2021"
-              />
-              <EduEntry title="NMS St.Michael" timespan="2012 - 2016" />
-              <EduEntry title="Volksschule St.Michael" timespan="2008 - 2012" />
+          <Card title="Bildung" img={educationImg}>
+            <Timeline>
+              <TimelineComp title="HTL 1 Lastenstraße" time="2016 - 2021">
+                Fachgebiet Mechatronik
+              </TimelineComp>
+              <TimelineComp
+                title="NMS St. Michael"
+                time="2012 - 2016"
+              ></TimelineComp>
+              {/* <TimelineComp
+                title="Volksschule St.Michael"
+                time="2008 - 2012"
+              ></TimelineComp> */}
+            </Timeline>
+          </Card>
+          <Card title="Berufserfahrung" img={educationImg} isInverted={true}>
+            <Timeline>
+              <TimelineComp title="Praktikum" time="4 Wochen | Sommer 2019">
+                Elektrotechniker bei SW Automatisierung GmbH
+              </TimelineComp>
+              <TimelineComp title="Praktikum" time="5 Wochen | Sommer 2018">
+                Elektrotechniker bei ASFINAG Autobahn
+              </TimelineComp>
+              <TimelineComp title="Praktikum" time="4 Wochen | Sommer 2017">
+                Elektriker bei Elektron Franz Schlick GmbH
+              </TimelineComp>
+            </Timeline>
+          </Card>
+
+          <Card title="Projekte">
+            <div className="flex  flex-col lg:flex-row">
+              <div>Diplomarbeit</div>
+              <div>Personal Webside</div>
+              <div>Shop Website - WIP</div>
             </div>
           </Card>
-          <Card title="Berufserfahrung">Bla Bla Bla</Card>
         </div>
-
-        <Card title="Projekte">
-          <div className="flex  flex-col lg:flex-row">
-            <div>Diplomarbeit</div>
-            <div>Personal Webside</div>
-            <div>Shop Website - WIP</div>
-          </div>
-        </Card>
+        <div className="angle-top-invert py-16 -mt-28 bg-white"></div>
       </div>
     );
   }

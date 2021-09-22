@@ -21,6 +21,12 @@ module.exports = {
           "100%": { transform: "scale(1)" },
         },
       },
+      spacing: {
+        100: "25rem",
+        200: "50rem",
+        225: "55rem",
+        250: "60rem",
+      },
     },
   },
   variants: {

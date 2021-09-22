@@ -1,6 +1,7 @@
 import React from "react";
 import profileImg from "../imgs/Foto-2020-2.png";
 // import profileImg from "../imgs/Foto-2020.jpg";
+import { Link } from "react-router-dom";
 
 function MeCard(props) {
   return (
@@ -66,69 +67,19 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div>
-        <MeCard />
-        <div className="flex flex-col lg:flex-row">
-          <Card title="About Me">
-            <p>
-              <strong>Hallo!</strong> <br />
-              Ich heiße Roland, bin 19 Jahre alt und habe Spaß an der
-              Softwareentwicklung.
-              <br />
-              Zurzeit leiste ich meinen Wehrdienst ab und werde im Frühjahre
-              2022 and der TU-Wien mit meinem Informatikstuium beginnen. <br />
-              Mein Ziel ist es nebenbei schon als Softwarentwickler zu arbeiten
-              um bereits wärend des Stuiums berufserfahrungen zu sammeln und mit
-              dem Verdienst mein Studium zu unterstützen.
-            </p>
-          </Card>
-          <Card title="Skills">
-            <div className="flex">
-              <div className="w-full">
-                <h1 className="text-xl">Kenntnisse</h1>
-                <p>
-                  JavaScript, Python, CSS, HTML, SQL <br />
-                  React, VueJS, Tailwind, SCSS
-                </p>
-                <h1 className="text-xl">Editor</h1>
-                <p>Visual Studio Code, Visual Studio</p>
-              </div>
-              <div className="w-full">
-                <h1 className="text-xl">Andere Programme</h1>
-                <p>
-                  Word, Excel, PowerPoint, Outlook <br />
-                  Figma, Adobe Xd
-                </p>
-                <h1 className="text-xl">Sprachen</h1>
-                <p>
-                  Deutsch - Muttersprache <br />
-                  Englisch - Fließend in Wort und Schrift
-                </p>
-              </div>
-            </div>
-          </Card>
+        {/* <MeCard /> */}
+        <div className="flex flex-col items-center justify-center mt-16">
+          <p className="font-round font-bold text-blue-700  text-3xl">
+            Landing page not done yet! 👷
+          </p>
+          <p className="mt-6 font-round text-1xl">
+            {"The "}
+            <Link to="/contact" className="text-blue-500 hover:underline">
+              Contact
+            </Link>
+            {" Page works"}
+          </p>
         </div>
-
-        <div className="flex flex-col lg:flex-row">
-          <Card title="Bildung">
-            <div>
-              <EduEntry
-                title="HTL1 Lastenstraße - Fachgebiet Mechatronik"
-                timespan="2016 - 2021"
-              />
-              <EduEntry title="NMS St.Michael" timespan="2012 - 2016" />
-              <EduEntry title="Volksschule St.Michael" timespan="2008 - 2012" />
-            </div>
-          </Card>
-          <Card title="Berufserfahrung">Bla Bla Bla</Card>
-        </div>
-
-        <Card title="Projekte">
-          <div className="flex  flex-col lg:flex-row">
-            <div>Diplomarbeit</div>
-            <div>Personal Webside</div>
-            <div>Shop Website - WIP</div>
-          </div>
-        </Card>
       </div>
     );
   }

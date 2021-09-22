@@ -60,18 +60,6 @@ class Footer extends React.Component {
                 </p>
               </Link>
             </div>
-            <div className="flex">
-              <Link to="/resources">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  Resources
-                </p>
-              </Link>
-              <Link to="/samples">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  Samples
-                </p>
-              </Link>
-            </div>
           </div>
         </div>
         <div className="text-center w-full mt-3 mb-2 font-round text-sm text-gray-500">

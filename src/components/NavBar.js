@@ -45,18 +45,8 @@ class NavBar extends React.Component {
                 {(matches.medium || matches.large) && (
                   <div className="flex justify-between items-center">
                     <Link to="/contact">
-                      <p className="ml-16 text-gray-600 hover:underline">
+                      <p className="ml-16 mr-8 text-gray-600 hover:underline">
                         Contact
-                      </p>
-                    </Link>
-                    <Link to="/resources">
-                      <p className="ml-16 text-gray-600 hover:underline">
-                        Resources
-                      </p>
-                    </Link>
-                    <Link to="/samples">
-                      <p className="ml-16 text-gray-600 hover:underline">
-                        Samples
                       </p>
                     </Link>
                   </div>
@@ -90,13 +80,6 @@ class NavBar extends React.Component {
                       <p className="text-gray-600 hover:underline">Contact</p>
                     </Link>
                     <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
-                    <Link to="/resources">
-                      <p className="text-gray-600 hover:underline">Resources</p>
-                    </Link>
-                    <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
-                    <Link to="/samples">
-                      <p className="text-gray-600 hover:underline">Samples</p>
-                    </Link>
                   </div>
                 )}
               </Fragment>

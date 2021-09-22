@@ -6,13 +6,18 @@ General:
   ☐ refactor the page links. They are now copy pasted in three different spots
   ☐ change README.md
   ☐ add some analytics (https://firebase.google.com/docs/analytics/get-started?platform=web#web-version-9)
+  ☐ The Tab-Icon isn't set yet
+
+
 
   Fix:
   ☐ Remove "Toast Tester" Button in the contact form
   ☐ contact page: email text wraps weirdly on moblie
   ☐ mobile zoom is weird + page extends to the left issue
   ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
-  ☐ 404 Page will use the public/404.html, which is still the firebase default
+  ✔ 404 Page will use the public/404.html, which is still the firebase default @done(21-09-22 18:30)
+
+
 
   Home:
   ☐ visuals

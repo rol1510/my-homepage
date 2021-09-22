@@ -4,34 +4,40 @@ General:
   ☐ put email in secrets. I mean , it's to late but why not
   ☐ check if flalticon.com needs a reference ore something to be legal
   ☐ refactor the page links. They are now copy pasted in three different spots
+  ☐ change README.md
+  ☐ add some analytics (https://firebase.google.com/docs/analytics/get-started?platform=web#web-version-9)
 
-Fix:
+  Fix:
+  ☐ Remove "Toast Tester" Button in the contact form
   ☐ contact page: email text wraps weirdly on moblie
   ☐ mobile zoom is weird + page extends to the left issue
+  ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
+  ☐ 404 Page will use the public/404.html, which is still the firebase default
 
-Home:
+  Home:
   ☐ visuals
 
 Contact Page:
   ✔ visuals @done(21-09-19 09:50)
   ✔ send mails @done(21-09-19 09:50)
   ✔ responsive @done(21-09-19 09:51)
-  ☐ Verify Input
-  ☐ Feedback bad input
-  ☐ Feedback success/failure
+  ✔ Verify Input @done(21-09-21 21:02)
+  ✔ Feedback bad input @done(21-09-21 21:02)
+  ✔ Feedback success/failure @done(21-09-21 21:02)
   ✔ add contact information @done(21-09-19 10:07)
+  ✔ fix email message line break problem @done(21-09-21 21:03)
 
 Resources:
-  ☐ download cv
-  ☐ link diplomarbeit
-  ☐ link github
-  ☐ link linkedIN
+  ✘ download cv @cancelled(21-09-21 21:03)
+  ✘ link diplomarbeit @cancelled(21-09-21 21:03)
+  ✘ link github @cancelled(21-09-21 21:03)
+  ✘ link linkedIN @cancelled(21-09-21 21:03)
 
 NavBar:
   ✔ visuals @done(21-09-19 09:50)
   ✔ responsive @done(21-09-19 09:51)
   ✔ links @done(21-09-19 09:51)
-  ☐ nicer animations on mobile pop-up
+  ✘ nicer animations on mobile pop-up @cancelled(21-09-21 21:03)
 
 Footer:
   ✔ create @done(21-09-19 13:11)

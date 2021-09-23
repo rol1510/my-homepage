@@ -31,7 +31,8 @@ class NavBar extends React.Component {
                 className="w-12 h-12 bg-blue-700
                          flex justify-center items-center
                          text-white font-round font-bold text-3xl
-                         rounded-full"
+                         rounded-full
+                         bg-gradient-to-tr from-purple-700 to-blue-700"
               >
                 R
               </div>

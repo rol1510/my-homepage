@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { MySocialMediaLinks, styleBlueButton } from "../components/comps";
+import { MySocialMediaLinks } from "../components/comps";
+import "intersection-observer";
+import { withIsVisible } from "react-is-visible";
 
 import profileImg from "../imgs/Foto-2020-2.png";
 import skillsImg from "../imgs/skills.png";
 import skills2Img from "../imgs/skills-2.png";
 import educationImg from "../imgs/education.png";
 import icons from "../js/icons";
+import IsVisible from "react-is-visible/lib/IsVisible";
 
 function MeCard(props) {
   // 😃 or 😊 (on hover)
@@ -81,37 +84,48 @@ function MeCard(props) {
 
 function Card(props) {
   return (
-    <div className="w-full lg:w-250 m-6 bg-white rounded-md shadow-md">
-      <div className="w-full relative">
-        <div className={`absolute ${props.isInverted ? "right-0" : ""}`}>
-          <div
-            className={`relative w-64 py-3
+    <IsVisible once>
+      {(visible) => (
+        <div
+          className={`w-full lg:w-250 m-6 bg-white rounded-md shadow-md
+        transition duration-300 ease-in 
+        transform
+          ${
+            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-52"
+          }`}
+        >
+          <div className="w-full relative">
+            <div className={`absolute ${props.isInverted ? "right-0" : ""}`}>
+              <div
+                className={`relative w-64 py-3
                        bg-blue-700 rounded-md shadow
                        text-2xl font-bold font-round text-white text-center
                        from-blue-600 to-blue-800 bg-gradient-to-bl
                        ${
                          props.isInverted ? "inset-x-2 -inset-y-2" : "-inset-2"
                        }`}
-          >
-            {props.title}
+              >
+                {props.title}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between p-4">
+            {props.isInverted && (
+              <div className="w-1/2 flex items-center">
+                <img src={props.img} className="rounded shadow" />
+              </div>
+            )}
+            <div className="px-4 pt-12 w-full">{props.children}</div>
+            {!props.isInverted && (
+              <div className="w-1/2 flex items-center">
+                <img src={props.img} className="rounded shadow" />
+              </div>
+            )}
           </div>
         </div>
-      </div>
-
-      <div className="flex justify-between p-4">
-        {props.isInverted && (
-          <div className="w-1/2 flex items-center">
-            <img src={props.img} className="rounded shadow" />
-          </div>
-        )}
-        <div className="px-4 pt-12 w-full">{props.children}</div>
-        {!props.isInverted && (
-          <div className="w-1/2 flex items-center">
-            <img src={props.img} className="rounded shadow" />
-          </div>
-        )}
-      </div>
-    </div>
+      )}
+    </IsVisible>
   );
 }
 

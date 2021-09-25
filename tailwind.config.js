@@ -9,7 +9,7 @@ module.exports = {
       animation: {
         wiggle: "wiggle 2s ease-in-out 1",
         appear: "appear 250ms ease-in-out 1",
-        move: "random-move 24s ease-in-out infinite",
+        move: "random-move 24s ease-out infinite",
         icon: "icon 1.5s ease-in-out 1",
       },
       keyframes: {
@@ -40,6 +40,9 @@ module.exports = {
           "0% 100%": {
             //rotate it just a bit to avoid shaky text
             transform: "translate(0, 0) scale(1) rotate(0.2deg)",
+          },
+          "10%": {
+            transform: "translate(0, .3rem) scale(.95) rotate(0.2deg)",
           },
           "35%": {
             transform: "translate(0, -1rem) scale(1.25) rotate(0.2deg)",

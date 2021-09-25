@@ -98,15 +98,6 @@ class ContactPage extends React.Component {
         mx-5 mt-6 md:mt-14 md:m-auto md:w-2/3 lg:w-1/3"
       >
         <p className="mt-2 mb-4 text-center text-2xl font-round">Contact Me!</p>
-        <button
-          onClick={() => {
-            toast.success("Yes!");
-          }}
-        >
-          Toast Tester
-        </button>
-
-        {/* form onSubmit is not working for some reason */}
 
         <Formik
           initialValues={{

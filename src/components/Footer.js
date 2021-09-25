@@ -6,6 +6,7 @@ import { ReactComponent as MailIcon } from "../imgs/mail.svg";
 import { ReactComponent as GithubIcon } from "../imgs/github.svg";
 import { ReactComponent as LinkedInIcon } from "../imgs/linkedin.svg";
 import secrets from "../secrets";
+import { MySocialMediaLinks, NavBarLinks } from "./comps";
 
 class Footer extends React.Component {
   render() {
@@ -27,21 +28,8 @@ class Footer extends React.Component {
               <MailIcon className="w-5 h-5 mr-2" />
               <p>{secrets.CONTACT_EMAIL}</p>
             </a>
-            <div className="flex mt-2">
-              <a
-                href={secrets.LINK_LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedInIcon className="w-8 h-8" />
-              </a>
-              <a
-                href={secrets.LINK_GITHUB}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon className="w-8 h-8 ml-2" />
-              </a>
+            <div className="mt-2">
+              <MySocialMediaLinks />
             </div>
           </div>
 
@@ -49,28 +37,7 @@ class Footer extends React.Component {
           <div className={boxFormatting}>
             <div className={h1Formatting}>Information</div>
             <div className="flex">
-              <Link to="/">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  About Me
-                </p>
-              </Link>
-              <Link to="/contact">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  Contact
-                </p>
-              </Link>
-            </div>
-            <div className="flex">
-              <Link to="/resources">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  Resources
-                </p>
-              </Link>
-              <Link to="/samples">
-                <p className="mx-5 my-1 text-gray-600 hover:underline">
-                  Samples
-                </p>
-              </Link>
+              <NavBarLinks />
             </div>
           </div>
         </div>

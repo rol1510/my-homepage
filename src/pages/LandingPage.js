@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { MySocialMediaLinks, styleBlueButton } from "../components/comps";
+
 import profileImg from "../imgs/Foto-2020-2.png";
 import skillsImg from "../imgs/skills.png";
 import skills2Img from "../imgs/skills-2.png";
 import educationImg from "../imgs/education.png";
-
 import icons from "../js/icons";
 
 function MeCard(props) {
@@ -46,7 +47,8 @@ function MeCard(props) {
         </div>
       </div>
 
-      <div className="ml-8">
+      {/* Box right of the image */}
+      <div className="ml-12">
         <p
           className="text-3xl font-round mb-4"
           onMouseEnter={() => {
@@ -58,7 +60,6 @@ function MeCard(props) {
         >
           Hallo! {currentEmoji}
         </p>
-
         <p>
           <span className="text-2xl font-round mb-2 text-gray-800">
             {/* {"Ich heiße"} */}
@@ -70,9 +71,9 @@ function MeCard(props) {
         <p className="text-md font-round text-gray-500">
           Student TU-Wien | Front-End Entwickler
         </p>
-        <p className="text-md font-round text-gray-500">
-          Links Github LinkedIn
-        </p>
+        <div className="flex justify-center items-center mt-4">
+          <MySocialMediaLinks />
+        </div>
       </div>
     </div>
   );
@@ -87,6 +88,7 @@ function Card(props) {
             className={`relative w-64 py-3
                        bg-blue-700 rounded-md shadow
                        text-2xl font-bold font-round text-white text-center
+                       from-blue-600 to-blue-800 bg-gradient-to-bl
                        ${
                          props.isInverted ? "inset-x-2 -inset-y-2" : "-inset-2"
                        }`}
@@ -113,22 +115,12 @@ function Card(props) {
   );
 }
 
-function EduEntry(props) {
-  return (
-    <div className="flex items-center">
-      <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-      <p className="ml-2 text-gray-700">{props.timespan}</p>
-      <p className="ml-2 text-lg">{props.title}</p>
-    </div>
-  );
-}
-
 function TimelineComp(props) {
   return (
     <li className="mt-3">
       <div className="flex items-center">
         <div
-          className="w-6 h-6 ml-4 mr-7 flex-shrink-0 
+          className="w-6 h-6 ml-4 mr-6 flex-shrink-0
                      border-4 border-blue-700 rounded-full"
         />
         <div>
@@ -158,15 +150,28 @@ function SkillPoint(props) {
   );
 }
 
+function SkillsContainer(props) {
+  return (
+    <div className="flex items-center justify-between mt-3">
+      <h1 className="text-xl w-1/5 text-center">{props.title}</h1>
+      <div className="flex justify-center items-center w-3/4 mt-4">
+        {props.children}
+      </div>
+    </div>
+  );
+}
+
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
 
     /* For the icon animation in the skills section
      * set len to the amount of icons (or more)
-     * use maxIndex to controll the 'delay' between loops */
-    const len = 12;
-    const maxIndex = len * 4;
+     * use maxIndex to controll the delay between loops
+     * use delayPerIcon to controll the delay between icons */
+    const len = 20; // TODO: Don't hardcode
+    const maxIndex = len * 2;
+    const delayPerIcon = 100;
 
     this.state = {
       icons: this.createBoolArray(len),
@@ -186,7 +191,7 @@ class LandingPage extends React.Component {
         icons: this.createBoolArray(len, index),
       });
       index++;
-    }, 100);
+    }, delayPerIcon);
   }
 
   /* Creates an array of booleans of the provided 'length'.
@@ -224,107 +229,148 @@ class LandingPage extends React.Component {
           </Card>
           <Card title="Skills" img={skills2Img} isInverted={true}>
             <div className="">
-              <h1 className="text-xl">Front-End</h1>
-              <div className="flex justify-center items-center mt-4">
+              <SkillsContainer title="Frontend">
                 <SkillPoint
-                  animate={this.state.icons[1]}
+                  animate={this.state.icons[0]}
                   text="JavaScript"
                   icon={icons.IconJavaScript}
                 />
                 <SkillPoint
-                  animate={this.state.icons[2]}
+                  animate={this.state.icons[1]}
                   text="HTML"
                   icon={icons.IconHTML}
                 />
                 <SkillPoint
-                  animate={this.state.icons[3]}
+                  animate={this.state.icons[2]}
                   text="CSS"
                   icon={icons.IconCSS}
                 />
                 <SkillPoint
-                  animate={this.state.icons[4]}
+                  animate={this.state.icons[3]}
                   text="React"
                   icon={icons.IconReact}
                 />
-              </div>
-              {/* <p>Tailwind, SCSS</p> */}
-
-              <h1 className="text-xl">Backend</h1>
-              <div className="flex justify-center items-center mt-4">
                 <SkillPoint
-                  animate={this.state.icons[0]}
+                  animate={this.state.icons[4]}
+                  text="Tailwind"
+                  icon={icons.IconReact}
+                />
+              </SkillsContainer>
+
+              <SkillsContainer title="Backend">
+                <SkillPoint
+                  animate={this.state.icons[5]}
                   text="Python"
                   icon={icons.IconPython}
                 />
                 <SkillPoint
-                  animate={this.state.icons[1]}
+                  animate={this.state.icons[6]}
                   text="NodeJs"
                   icon={icons.IconNodeJs}
                 />
                 <SkillPoint
-                  animate={this.state.icons[2]}
-                  text="GitHub"
-                  icon={icons.IconGitHub}
+                  animate={this.state.icons[7]}
+                  text="Electron"
+                  icon={icons.IconNodeJs}
                 />
                 <SkillPoint
-                  animate={this.state.icons[3]}
+                  animate={this.state.icons[8]}
                   text="Linux"
                   icon={icons.IconLinux}
                 />
                 <SkillPoint
-                  animate={this.state.icons[4]}
+                  animate={this.state.icons[9]}
                   text="Windows"
                   icon={icons.IconWindows}
                 />
+              </SkillsContainer>
+
+              <SkillsContainer title="Tooling">
                 <SkillPoint
-                  animate={this.state.icons[5]}
+                  animate={this.state.icons[10]}
+                  text="Git"
+                  icon={icons.IconGit}
+                />
+                <SkillPoint
+                  animate={this.state.icons[11]}
+                  text="GitHub"
+                  icon={icons.IconGitHub}
+                />
+                <SkillPoint
+                  animate={this.state.icons[12]}
                   text="NPM"
                   icon={icons.IconNPM}
                 />
-              </div>
+              </SkillsContainer>
 
-              <h1 className="text-xl">Tooling</h1>
-              <p>
-                git, github, npm, linux, windows, ..., Visual Studio Code,
-                Visual Studio
-              </p>
-              <h1 className="text-xl">Andere Programme</h1>
-              <p>
-                Word, Excel, PowerPoint, Outlook <br />
-                Figma, Adobe Xd
-              </p>
-              <h1 className="text-xl">Sprachen</h1>
-              <p>
+              <SkillsContainer title="Andere Programme">
+                <SkillPoint
+                  animate={this.state.icons[13]}
+                  text="Word"
+                  icon={icons.IconWord}
+                />
+                <SkillPoint
+                  animate={this.state.icons[14]}
+                  text="Excel"
+                  icon={icons.IconExcel}
+                />
+                <SkillPoint
+                  animate={this.state.icons[15]}
+                  text="PowerPoint"
+                  icon={icons.IconPowerPoint}
+                />
+                <SkillPoint
+                  animate={this.state.icons[16]}
+                  text="Outlook"
+                  icon={icons.IconOutlook}
+                />
+                <SkillPoint
+                  animate={this.state.icons[17]}
+                  text="Figma"
+                  icon={icons.IconOutlook}
+                />
+                <SkillPoint
+                  animate={this.state.icons[18]}
+                  text="Adobe Xd"
+                  icon={icons.IconOutlook}
+                />
+              </SkillsContainer>
+            </div>
+          </Card>
+
+          <Card title="Bildung" img={educationImg}>
+            <div className="flex flex-col items-center justify-center">
+              <Timeline>
+                <TimelineComp title="TU-Wien" time="🕓 beginnent März 2022">
+                  Bachelorstudium - Informatik
+                </TimelineComp>
+                <TimelineComp title="HTL 1 Lastenstraße" time="✔️ 2016 - 2021">
+                  Matura - Fachgebiet Mechatronik
+                </TimelineComp>
+                <TimelineComp
+                  title="NMS St. Michael"
+                  time="✔️ 2012 - 2016"
+                ></TimelineComp>
+                {/* <TimelineComp
+                title="Volksschule St.Michael"
+                time="2008 - 2012"
+              ></TimelineComp> */}
+              </Timeline>
+              <p className="mt-8 mb-4 ">
                 Deutsch - Muttersprache <br />
                 Englisch - Fließend in Wort und Schrift
               </p>
             </div>
           </Card>
-
-          <Card title="Bildung" img={educationImg}>
-            <Timeline>
-              <TimelineComp title="HTL 1 Lastenstraße" time="2016 - 2021">
-                Fachgebiet Mechatronik
-              </TimelineComp>
-              <TimelineComp
-                title="NMS St. Michael"
-                time="2012 - 2016"
-              ></TimelineComp>
-              {/* <TimelineComp
-                title="Volksschule St.Michael"
-                time="2008 - 2012"
-              ></TimelineComp> */}
-            </Timeline>
-          </Card>
           <Card title="Berufserfahrung" img={educationImg} isInverted={true}>
             <Timeline>
-              <TimelineComp title="Praktikum" time="4 Wochen | Sommer 2019">
+              <TimelineComp title="Praktikum" time="✔️ 4 Wochen | Sommer 2019">
                 Elektrotechniker bei SW Automatisierung GmbH
               </TimelineComp>
-              <TimelineComp title="Praktikum" time="5 Wochen | Sommer 2018">
+              <TimelineComp title="Praktikum" time="✔️ 5 Wochen | Sommer 2018">
                 Elektrotechniker bei ASFINAG Autobahn
               </TimelineComp>
-              <TimelineComp title="Praktikum" time="4 Wochen | Sommer 2017">
+              <TimelineComp title="Praktikum" time="✔️ 4 Wochen | Sommer 2017">
                 Elektriker bei Elektron Franz Schlick GmbH
               </TimelineComp>
             </Timeline>

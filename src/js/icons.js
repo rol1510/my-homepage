@@ -5,12 +5,20 @@ import { ReactComponent as IconPython } from "../imgs/mini-icon-set-CC3/python.s
 import { ReactComponent as IconReact } from "../imgs/mini-icon-set-CC3/react.svg";
 import { ReactComponent as IconGit } from "../imgs/mini-icon-set-CC3/git.svg";
 import { ReactComponent as IconGitHub } from "../imgs/mini-icon-set-CC3/github.svg";
+import { ReactComponent as IconNPM } from "../imgs/mini-icon-set-CC3/npm.svg";
 import { ReactComponent as IconLinux } from "../imgs/mini-icon-set-CC3/linux.svg";
 import { ReactComponent as IconWindows } from "../imgs/mini-icon-set-CC3/microsoft.svg";
-import { ReactComponent as IconNPM } from "../imgs/mini-icon-set-CC3/npm.svg";
 
 import { ReactComponent as IconNodeJs } from "../imgs/svg-logos-CC3/nodejs.svg";
 import { ReactComponent as IconNodeJs2 } from "../imgs/svg-logos-CC3/nodejs-2.svg";
+// import { ReactComponent as IconElectron } from "../imgs/svg-logos-CC3/nodejs.svg";
+
+import { ReactComponent as IconWord } from "../imgs/logos/037-word.svg";
+import { ReactComponent as IconExcel } from "../imgs/logos/043-excel.svg";
+import { ReactComponent as IconPowerPoint } from "../imgs/logos/039-powerpoint.svg";
+import { ReactComponent as IconOutlook } from "../imgs/logos/040-outlook.svg";
+// import { ReactComponent as IconFigma } from "../imgs/logos/nodejs.svg";
+// import { ReactComponent as IconAdobeXd } from "../imgs/logos/nodejs.svg";
 
 const icons = {
   IconHTML,
@@ -25,6 +33,10 @@ const icons = {
   IconNPM,
   IconNodeJs,
   IconNodeJs2,
+  IconWord,
+  IconExcel,
+  IconPowerPoint,
+  IconOutlook,
 };
 
 export default icons;

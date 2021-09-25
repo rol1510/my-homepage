@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
+import { NavBarLinks } from "./comps";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -45,21 +46,7 @@ class NavBar extends React.Component {
               <Fragment>
                 {(matches.medium || matches.large) && (
                   <div className="flex justify-between items-center">
-                    <Link to="/contact">
-                      <p className="ml-16 text-gray-600 hover:underline">
-                        Contact
-                      </p>
-                    </Link>
-                    <Link to="/resources">
-                      <p className="ml-16 text-gray-600 hover:underline">
-                        Resources
-                      </p>
-                    </Link>
-                    <Link to="/samples">
-                      <p className="ml-16 text-gray-600 hover:underline">
-                        Samples
-                      </p>
-                    </Link>
+                    <NavBarLinks />
                   </div>
                 )}
 

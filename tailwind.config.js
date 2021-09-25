@@ -10,6 +10,7 @@ module.exports = {
         wiggle: "wiggle 2s ease-in-out 1",
         appear: "appear 250ms ease-in-out 1",
         move: "random-move 24s ease-in-out infinite",
+        icon: "icon 1.5s ease-in-out 1",
       },
       keyframes: {
         wiggle: {
@@ -35,6 +36,15 @@ module.exports = {
             transform: "translate(-1rem, 6rem) scale(.9)",
           },
         },
+        icon: {
+          "0% 100%": {
+            //rotate it just a bit to avoid shaky text
+            transform: "translate(0, 0) scale(1) rotate(0.2deg)",
+          },
+          "35%": {
+            transform: "translate(0, -1rem) scale(1.25) rotate(0.2deg)",
+          },
+        },
       },
       spacing: {
         100: "25rem",
@@ -47,6 +57,7 @@ module.exports = {
   variants: {
     backgroundColor: ["active", "hover", "focus"],
     borderWidth: ["active", "hover", "focus"],
+    animation: ["responsive", "motion-safe", "motion-reduce"],
   },
   plugins: [],
 };

@@ -4,6 +4,8 @@ import skillsImg from "../imgs/skills.png";
 import skills2Img from "../imgs/skills-2.png";
 import educationImg from "../imgs/education.png";
 
+import icons from "../js/icons";
+
 function MeCard(props) {
   // 😃 or 😊 (on hover)
   const [currentEmoji, setEmoji] = useState("😃");
@@ -143,7 +145,62 @@ function Timeline(props) {
   return <ul>{props.children}</ul>;
 }
 
+function SkillPoint(props) {
+  const Icon = props.icon;
+
+  return (
+    <div className={`mx-2 ${props.animate ? "animate-icon" : ""}`}>
+      <div className=" w-8 h-8 mx-auto">
+        {typeof props.icon !== "undefined" && <Icon />}
+      </div>
+      <p className="font-round text-center mt-1 font-">{props.text}</p>
+    </div>
+  );
+}
+
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    /* For the icon animation in the skills section
+     * set len to the amount of icons (or more)
+     * use maxIndex to controll the 'delay' between loops */
+    const len = 12;
+    const maxIndex = len * 4;
+
+    this.state = {
+      icons: this.createBoolArray(len),
+    };
+
+    /* For the icon animation in the skills section
+     * What's happening is:
+     *    - this.state.icons is an array of booleans
+     *    - each icon get one of those bools assigned, which inturn toggles the 'animate-icon' class
+     *      - if we flip the bool to false and back to true the animation plays once
+     *    - now by 'moving' that one false bool through the array we can start the animation
+     *      individually and create this 'laola' effect */
+    let index = 0;
+    setInterval(() => {
+      if (index > maxIndex) index = 0;
+      this.setState({
+        icons: this.createBoolArray(len, index),
+      });
+      index++;
+    }, 100);
+  }
+
+  /* Creates an array of booleans of the provided 'length'.
+   * every bool will be true except for the one at 'currentIndex'
+   * This is used to animate the logos in the skills section
+   * if 'currentIndex' < 0 -> everything will be true */
+  createBoolArray(length, currentIndex = -1) {
+    const arr = Array(length).fill(true);
+    if (currentIndex >= 0 && currentIndex < length) {
+      arr[currentIndex] = false;
+    }
+    return arr;
+  }
+
   render() {
     return (
       <div>
@@ -166,28 +223,81 @@ class LandingPage extends React.Component {
             </p>
           </Card>
           <Card title="Skills" img={skills2Img} isInverted={true}>
-            <div className="flex">
-              <div className="w-full">
-                <h1 className="text-xl">Kenntnisse</h1>
-                <p>
-                  JavaScript, Python, CSS, HTML, SQL <br />
-                  React, VueJS, Tailwind, SCSS
-                </p>
-                <h1 className="text-xl">Editor</h1>
-                <p>Visual Studio Code, Visual Studio</p>
+            <div className="">
+              <h1 className="text-xl">Front-End</h1>
+              <div className="flex justify-center items-center mt-4">
+                <SkillPoint
+                  animate={this.state.icons[1]}
+                  text="JavaScript"
+                  icon={icons.IconJavaScript}
+                />
+                <SkillPoint
+                  animate={this.state.icons[2]}
+                  text="HTML"
+                  icon={icons.IconHTML}
+                />
+                <SkillPoint
+                  animate={this.state.icons[3]}
+                  text="CSS"
+                  icon={icons.IconCSS}
+                />
+                <SkillPoint
+                  animate={this.state.icons[4]}
+                  text="React"
+                  icon={icons.IconReact}
+                />
               </div>
-              <div className="w-full">
-                <h1 className="text-xl">Andere Programme</h1>
-                <p>
-                  Word, Excel, PowerPoint, Outlook <br />
-                  Figma, Adobe Xd
-                </p>
-                <h1 className="text-xl">Sprachen</h1>
-                <p>
-                  Deutsch - Muttersprache <br />
-                  Englisch - Fließend in Wort und Schrift
-                </p>
+              {/* <p>Tailwind, SCSS</p> */}
+
+              <h1 className="text-xl">Backend</h1>
+              <div className="flex justify-center items-center mt-4">
+                <SkillPoint
+                  animate={this.state.icons[0]}
+                  text="Python"
+                  icon={icons.IconPython}
+                />
+                <SkillPoint
+                  animate={this.state.icons[1]}
+                  text="NodeJs"
+                  icon={icons.IconNodeJs}
+                />
+                <SkillPoint
+                  animate={this.state.icons[2]}
+                  text="GitHub"
+                  icon={icons.IconGitHub}
+                />
+                <SkillPoint
+                  animate={this.state.icons[3]}
+                  text="Linux"
+                  icon={icons.IconLinux}
+                />
+                <SkillPoint
+                  animate={this.state.icons[4]}
+                  text="Windows"
+                  icon={icons.IconWindows}
+                />
+                <SkillPoint
+                  animate={this.state.icons[5]}
+                  text="NPM"
+                  icon={icons.IconNPM}
+                />
               </div>
+
+              <h1 className="text-xl">Tooling</h1>
+              <p>
+                git, github, npm, linux, windows, ..., Visual Studio Code,
+                Visual Studio
+              </p>
+              <h1 className="text-xl">Andere Programme</h1>
+              <p>
+                Word, Excel, PowerPoint, Outlook <br />
+                Figma, Adobe Xd
+              </p>
+              <h1 className="text-xl">Sprachen</h1>
+              <p>
+                Deutsch - Muttersprache <br />
+                Englisch - Fließend in Wort und Schrift
+              </p>
             </div>
           </Card>
 

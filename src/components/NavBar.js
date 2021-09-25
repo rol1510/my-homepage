@@ -74,17 +74,7 @@ class NavBar extends React.Component {
                     className="flex flex-col items-center
                                  animate-appear"
                   >
-                    <Link to="/contact">
-                      <p className="text-gray-600 hover:underline">Contact</p>
-                    </Link>
-                    <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
-                    <Link to="/resources">
-                      <p className="text-gray-600 hover:underline">Resources</p>
-                    </Link>
-                    <div className="w-40 h-px p-0 my-2 bg-gray-300 rounded-full" />
-                    <Link to="/samples">
-                      <p className="text-gray-600 hover:underline">Samples</p>
-                    </Link>
+                    <NavBarLinks />
                   </div>
                 )}
               </Fragment>

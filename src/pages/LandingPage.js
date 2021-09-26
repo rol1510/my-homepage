@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MySocialMediaLinks } from "../components/comps";
 import "intersection-observer";
 import { withIsVisible } from "react-is-visible";
+import { translator, translatorStrings as ts } from "../js/translation";
 
 import profileImg from "../imgs/Foto-2020-2.png";
 import skillsImg from "../imgs/skills.png";
@@ -61,7 +62,7 @@ function MeCard(props) {
             setEmoji("😃");
           }}
         >
-          Hallo! {currentEmoji}
+          {`${ts.mecard.greeting} ${currentEmoji}`}
         </p>
         <p>
           <span className="text-2xl font-round mb-2 text-gray-800">
@@ -72,7 +73,7 @@ function MeCard(props) {
           </span>
         </p>
         <p className="text-md font-round text-gray-500">
-          Student TU-Wien | Front-End Entwickler
+          {ts.mecard.description}
         </p>
         <div className="flex justify-center items-center mt-4">
           <MySocialMediaLinks />
@@ -88,8 +89,7 @@ function Card(props) {
       {(visible) => (
         <div
           className={`w-full lg:w-250 m-6 bg-white rounded-md shadow-md
-        transition duration-300 ease-in 
-        transform
+                      transition duration-300 ease-in transform
           ${
             visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-52"
           }`}

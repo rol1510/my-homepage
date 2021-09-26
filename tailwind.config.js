@@ -9,6 +9,8 @@ module.exports = {
       animation: {
         wiggle: "wiggle 2s ease-in-out 1",
         appear: "appear 250ms ease-in-out 1",
+        "appear-top": "appear-top 300ms 1",
+        "disappear-top": "disappear-top 150ms 1",
         move: "random-move 24s ease-out infinite",
         icon: "icon 1.5s ease-in-out 1",
       },
@@ -21,6 +23,15 @@ module.exports = {
         appear: {
           "0%": { "transform-origin": "top right", transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
+        },
+        "appear-top": {
+          "0%": { "transform-origin": "top", transform: "scaleY(0)" },
+          "75%": { transform: "scaleY(1.2)" },
+          "100%": { transform: "scaleY(1)" },
+        },
+        "disappear-top": {
+          "100%": { "transform-origin": "top", transform: "scaleY(0)" },
+          "0%": { transform: "scaleY(1)" },
         },
         "random-move": {
           "0% 100%": {

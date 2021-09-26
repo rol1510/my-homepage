@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer utilities {
+  .animate-backwards {
+    animation-direction: reverse;
+  }
+  .animation-perserve {
+    animation-fill-mode: both;
+  }
+
   .animation-delay-1 {
     animation-delay: -8s;
   }

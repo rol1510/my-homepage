@@ -1,7 +1,69 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 import { NavBarLinks } from "./comps";
+import { translator, translatorStrings as ts } from "../js/translation";
+
+function LanguageButton(props) {
+  return (
+    <button
+      onClick={() => {
+        translator.setLang(props.lang);
+        console.log(translator.strings.lang.english);
+      }}
+      className={`flex items-center py-2 px-4 w-full
+      border-l-4 border-transparent hover:bg-blue-100
+      ${
+        translator.currentLang === props.lang
+          ? "bg-white border-blue-700"
+          : "bg-gray-100"
+      }`}
+    >
+      <p className="font-round text-md">{props.title}</p>
+    </button>
+  );
+}
+
+function LanguageSelector(props) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative " onMouseLeave={() => setOpen(false)}>
+      <button
+        className="relative py-1 px-2 rounded-full border transition z-50
+        border-transparent transform hover:border-gray-200 hover:scale-110"
+        onClick={() => setOpen(!open)}
+      >
+        <p className="text-gray-700">
+          {"🌐 "}
+          <span className="font-round">
+            {translator.currentLang.toUpperCase()}
+          </span>
+        </p>
+      </button>
+
+      {(open || true) && (
+        <div
+          className={`absolute -mt-2 pt-6 right-0 z-40
+                animate-appear-top animation-perserve
+                ${open ? "animate-appear-top" : "animate-disappear-top"}`}
+        >
+          <div className="relative border shadow-lg rounded-md bg-white">
+            <div
+              className="w-4 h-4 transform rotate-45 bg-white border
+                         absolute mx-auto -top-2 right-6"
+            />
+
+            <div className="relative mt-0 bg-white rounded-md overflow-hidden">
+              <LanguageButton title="English" lang="en" />
+              <LanguageButton title="Deutsch" lang="de" />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -9,6 +71,11 @@ class NavBar extends React.Component {
     this.state = { expanded: false };
 
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
+
+    // Else the NavBar will NOT update right
+    translator.registerToOnChange(() => {
+      this.forceUpdate();
+    });
   }
 
   handleExpandLinks(event) {
@@ -47,6 +114,8 @@ class NavBar extends React.Component {
                 {(matches.medium || matches.large) && (
                   <div className="flex justify-between items-center">
                     <NavBarLinks />
+                    <div className="mx-3"></div>
+                    <LanguageSelector />
                   </div>
                 )}
 
@@ -75,6 +144,7 @@ class NavBar extends React.Component {
                                  animate-appear"
                   >
                     <NavBarLinks />
+                    <LanguageSelector />
                   </div>
                 )}
               </Fragment>

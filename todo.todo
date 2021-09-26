@@ -1,26 +1,40 @@
 General:
-  ☐ translation
-  ☐ hosting
-  ☐ put email in secrets. I mean , it's to late but why not
+  ✔ implement a language system @done(21-09-26 15:01)
+    ☐ translation
+  ✔ hosting @done(21-09-25 09:58)
+  ✔ put email in secrets. I mean , it's to late but why not @done(21-09-25 09:58)
   ☐ check if flalticon.com needs a reference ore something to be legal
   ☐ refactor the page links. They are now copy pasted in three different spots
   ☐ change README.md
   ☐ add some analytics (https://firebase.google.com/docs/analytics/get-started?platform=web#web-version-9)
-  ☐ The Tab-Icon isn't set yet
+  ✔ The Tab-Icon + Title isn't set yet @done(21-09-25 09:58)
+  ☐ make mobile friendly
+  ☐ NavBar Links feedback
 
 
 
   Fix:
-  ☐ Remove "Toast Tester" Button in the contact form
+  ✔ Remove "Toast Tester" Button in the contact form @done(21-09-25 12:21)
+  ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
   ☐ contact page: email text wraps weirdly on moblie
   ☐ mobile zoom is weird + page extends to the left issue
-  ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
   ✔ 404 Page will use the public/404.html, which is still the firebase default @done(21-09-22 18:30)
-
+  ☐ icon animation, on start every icon jumps once a the same time
+  ☐ Chrome renders the checkmare and clock emoji different. Use img or someting.
+  ☐ add reduced-motion and motion-safe
+  ☐ all text nunito
+    ☐ NavBar Links
+    ☐ my language skills
 
 
   Home:
   ☐ visuals
+  ☐ Sections:
+    ☐ About ME
+    ☐ Skills
+    ☐ Bildung
+    ☐ Berufserfahrung
+    ☐ Projekte + Diplomarbeit
 
 Contact Page:
   ✔ visuals @done(21-09-19 09:50)
@@ -68,5 +82,5 @@ To Include:
   <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
+  <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 

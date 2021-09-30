@@ -66,6 +66,100 @@ const stringDict = {
       de: "Andere Programme",
     },
   },
+
+  education: {
+    title: {
+      en: "Education",
+      de: "Bildung",
+    },
+    tu: {
+      title: {
+        en: "TU-Vienna",
+        de: "TU-Wien",
+      },
+      timespan: {
+        en: "🕓 beginning March 2022",
+        de: "🕓 beginnent März 2022",
+      },
+      text: {
+        en: "Bachelor's Degree - Computer Science",
+        de: "Bachelorstudium - Informatik",
+      },
+    },
+    htl: {
+      title: {
+        en: "HTL 1 Lastenstraße",
+        de: "HTL 1 Lastenstraße",
+      },
+      timespan: {
+        en: "✔️ 2016 - 2021",
+        de: "✔️ 2016 - 2021",
+      },
+      text: {
+        en: "Matura in Mechatronics",
+        de: "Matura - Fachgebiet Mechatronik",
+      },
+    },
+    nms: {
+      title: {
+        en: "NMS St. Michael",
+        de: "NMS St. Michael",
+      },
+      timespan: {
+        en: "✔️ 2012 - 2016",
+        de: "✔️ 2012 - 2016",
+      },
+    },
+  },
+
+  experiance: {
+    title: {
+      en: "Work Experience",
+      de: "Berufserfahrung",
+    },
+    p3: {
+      title: {
+        en: "Internship",
+        de: "Praktikum",
+      },
+      timespan: {
+        en: "✔️ 4 Weeks | Summer of 2019",
+        de: "✔️ 4 Wochen | Sommer 2019",
+      },
+      text: {
+        en: "Electrical engineer at SW Automatisierung GmbH",
+        de: "Elektrotechniker bei SW Automatisierung GmbH",
+      },
+    },
+    p2: {
+      title: {
+        en: "Internship",
+        de: "Praktikum",
+      },
+      timespan: {
+        en: "✔️ 5 Weeks | Summer of 2018",
+        de: "✔️ 5 Wochen | Sommer 2018",
+      },
+      text: {
+        en: "Electrical engineer at ASFINAG",
+        de: "Elektrotechniker bei der ASFINAG",
+      },
+    },
+    p1: {
+      title: {
+        en: "Internship",
+        de: "Praktikum",
+      },
+      timespan: {
+        en: "✔️ 4 Weeks | Summer of 2017",
+        de: "✔️ 4 Wochen | Sommer 2017",
+      },
+      text: {
+        en: "Electrical engineer at Elektron Franz Schlick GmbH",
+        de: "Elektrotechniker bei Elektron Franz Schlick GmbH",
+      },
+    },
+  },
 };
 
 const validLanguageTags = ["en", "de"];

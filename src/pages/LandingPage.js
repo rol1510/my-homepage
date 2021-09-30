@@ -372,40 +372,55 @@ class LandingPage extends React.Component {
             </div>
           </Card>
 
-          <Card title="Bildung" img={educationImg}>
+          <Card title={ts.education.title} img={educationImg}>
             <div className="flex flex-col items-center justify-center">
               <Timeline>
-                <TimelineComp title="TU-Wien" time="🕓 beginnent März 2022">
-                  Bachelorstudium - Informatik
-                </TimelineComp>
-                <TimelineComp title="HTL 1 Lastenstraße" time="✔️ 2016 - 2021">
-                  Matura - Fachgebiet Mechatronik
+                <TimelineComp
+                  title={ts.education.tu.title}
+                  time={ts.education.tu.timespan}
+                >
+                  {ts.education.tu.text}
                 </TimelineComp>
                 <TimelineComp
-                  title="NMS St. Michael"
-                  time="✔️ 2012 - 2016"
+                  title={ts.education.htl.title}
+                  time={ts.education.htl.timespan}
+                >
+                  {ts.education.htl.text}
+                </TimelineComp>
+                <TimelineComp
+                  title={ts.education.nms.title}
+                  time={ts.education.nms.timespan}
                 ></TimelineComp>
                 {/* <TimelineComp
                 title="Volksschule St.Michael"
                 time="2008 - 2012"
               ></TimelineComp> */}
               </Timeline>
-              <p className="mt-8 mb-4 ">
+              {/* <p className="mt-8 mb-4 ">
                 Deutsch - Muttersprache <br />
                 Englisch - Fließend in Wort und Schrift
-              </p>
+              </p> */}
             </div>
           </Card>
-          <Card title="Berufserfahrung" img={teamImg} isInverted={true}>
+          <Card title={ts.experiance.title} img={teamImg} isInverted={true}>
             <Timeline>
-              <TimelineComp title="Praktikum" time="✔️ 4 Wochen | Sommer 2019">
-                Elektrotechniker bei SW Automatisierung GmbH
+              <TimelineComp
+                title={ts.experiance.p3.title}
+                time={ts.experiance.p3.timespan}
+              >
+                {ts.experiance.p3.text}
               </TimelineComp>
-              <TimelineComp title="Praktikum" time="✔️ 5 Wochen | Sommer 2018">
-                Elektrotechniker bei ASFINAG Autobahn
+              <TimelineComp
+                title={ts.experiance.p2.title}
+                time={ts.experiance.p2.timespan}
+              >
+                {ts.experiance.p2.text}
               </TimelineComp>
-              <TimelineComp title="Praktikum" time="✔️ 4 Wochen | Sommer 2017">
-                Elektriker bei Elektron Franz Schlick GmbH
+              <TimelineComp
+                title={ts.experiance.p1.title}
+                time={ts.experiance.p1.timespan}
+              >
+                {ts.experiance.p1.text}
               </TimelineComp>
             </Timeline>
           </Card>

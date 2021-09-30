@@ -1,3 +1,19 @@
+MVP:
+  ✔ Write the about me card @done(21-09-30 17:01)
+    ✔ add a different image @done(21-09-30 19:40)
+  ✔ format the skills card @started(21-09-30 19:40) @done(21-09-30 20:32) @lasted(52m13s)
+    ✔ add the missing icons @done(21-09-30 20:32)
+  ✔ translate the education card @done(21-09-30 21:14)
+  ✔ translate the experience card @done(21-09-30 21:14)
+  ☐ formtat the education card
+  ☐ formtat the experience card
+  ☐ add something to the Projects Card
+  ☐ translate the Contact form, NavBar and Footer
+  ☐ make responsive, but don't do to much. Transition are kinda useless, nobody's gonna see them
+  ☐ go over 'General' and 'Fix' todos
+  ☐ Create a teseting script and test on Windows, Linux, Mac and Android
+  ☐ decide on a place to put the languages
+
 General:
   ✔ implement a language system @done(21-09-26 15:01)
     ☐ translation
@@ -10,24 +26,25 @@ General:
   ✔ The Tab-Icon + Title isn't set yet @done(21-09-25 09:58)
   ☐ make mobile friendly
   ☐ NavBar Links feedback
+  ☐ make the NavBar sticky
+  ☐ put the landing page headers all on the same side?
 
-
-
-  Fix:
+Fix:
   ✔ Remove "Toast Tester" Button in the contact form @done(21-09-25 12:21)
   ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
   ☐ contact page: email text wraps weirdly on moblie
   ☐ mobile zoom is weird + page extends to the left issue
   ✔ 404 Page will use the public/404.html, which is still the firebase default @done(21-09-22 18:30)
   ☐ icon animation, on start every icon jumps once a the same time
-  ☐ Chrome renders the checkmare and clock emoji different. Use img or someting.
+  ☐ Linux renders the checkmare and clock emoji different. Should we be concerned?
   ☐ add reduced-motion and motion-safe
   ☐ all text nunito
     ☐ NavBar Links
     ☐ my language skills
+  ☐ the warnings
+  ☐ Maybe don't show the about me link in the NavBar if we're on the about me page to avoid confusion
 
-
-  Home:
+Home:
   ☐ visuals
   ☐ Sections:
     ☐ About ME

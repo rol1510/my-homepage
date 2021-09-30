@@ -1,6 +1,9 @@
 const stringDict = {
   mecard: {
-    greeting: { en: "Hello!", de: "Hallo!" },
+    greeting: {
+      en: "Hello!",
+      de: "Hallo!",
+    },
     description: {
       en: "Student TU-Vienna | Front-End Developer",
       de: "Student TU-Wien | Front-End Entwickler",
@@ -23,7 +26,6 @@ const stringDict = {
       en: "About Me",
       de: "Über mich",
     },
-
     t1: {
       en: "Hi!",
       de: "Hallo!",
@@ -39,6 +41,29 @@ const stringDict = {
     t4: {
       en: "Personally, I’m very ambitious and got the desire to constantly improve my skillset. I prefer to do this in a practical way, because mistakes are the best way to learn. I am very shy at first, but after a short period of getting to know my colleagues, I enjoy working in teams. My previous employers have always been very impressed with my independence in doing my work.",
       de: "Persönliche bin ich sehr strebsam und habe das Verlangen mich immer weiterzubilden. Am liebsten mache ich dies Praktisch, denn aus Fehlern lernt man am besten. Ich bin zwar anfangs sehr schüchtern, jedoch fällt mir nach kurzer Eingewöhnungsphase das Arbeiten in Teams sehr leicht. Meine früheren Arbeitgeber waren immer sehr beeindruckt von meiner Selbstständigkeit beim Erledigen meiner Arbeit.",
+    },
+  },
+
+  skills: {
+    title: {
+      en: "Skills",
+      de: "Skills",
+    },
+    frontend: {
+      en: "Frontend",
+      de: "Frontend",
+    },
+    backend: {
+      en: "Backend",
+      de: "Backend",
+    },
+    tooling: {
+      en: "Tooling",
+      de: "Hilfsmittel",
+    },
+    other: {
+      en: "Other Software",
+      de: "Andere Programme",
     },
   },
 };

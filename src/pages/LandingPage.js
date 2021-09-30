@@ -8,6 +8,8 @@ import profileImg from "../imgs/Foto-2020-2.png";
 import skillsImg from "../imgs/skills.png";
 import skills2Img from "../imgs/skills-2.png";
 import educationImg from "../imgs/education.png";
+import teamImg from "../imgs/team.png";
+import laptopImg from "../imgs/laptop.png";
 import icons from "../js/icons";
 import IsVisible from "react-is-visible/lib/IsVisible";
 
@@ -253,7 +255,7 @@ class LandingPage extends React.Component {
             </div>
 
             <div className="mt-5 flex w-full">
-              <UsableImage classDiv="w-2/5" src={skillsImg} alt="" />
+              <UsableImage classDiv="w-2/5" src={laptopImg} alt="" />
               <div className="w-3/5 ml-7 flex flex-col justify-center">
                 <p className="font-round mt-1 text-justify ">{ts.aboutme.t4}</p>
               </div>
@@ -394,7 +396,7 @@ class LandingPage extends React.Component {
               </p>
             </div>
           </Card>
-          <Card title="Berufserfahrung" img={educationImg} isInverted={true}>
+          <Card title="Berufserfahrung" img={teamImg} isInverted={true}>
             <Timeline>
               <TimelineComp title="Praktikum" time="✔️ 4 Wochen | Sommer 2019">
                 Elektrotechniker bei SW Automatisierung GmbH

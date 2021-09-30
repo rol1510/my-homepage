@@ -110,14 +110,14 @@ function Card(props) {
             </div>
           </div>
 
-          <div className="flex justify-between p-4">
-            {props.isInverted && (
+          <div className="flex justify-between p-8">
+            {props.isInverted && props.img && (
               <div className="w-1/2 flex items-center">
                 <img src={props.img} className="rounded shadow" />
               </div>
             )}
-            <div className="px-4 pt-12 w-full">{props.children}</div>
-            {!props.isInverted && (
+            <div className="pt-8 w-full">{props.children}</div>
+            {!props.isInverted && props.img && (
               <div className="w-1/2 flex items-center">
                 <img src={props.img} className="rounded shadow" />
               </div>
@@ -126,6 +126,18 @@ function Card(props) {
         </div>
       )}
     </IsVisible>
+  );
+}
+
+function UsableImage(props) {
+  return (
+    <div className={`my-auto rounded shadow overflow-hidden ${props.classDiv}`}>
+      <img
+        className={`w-full object-cover ${props.className}`}
+        src={props.src}
+        alt={props.alt}
+      />
+    </div>
   );
 }
 
@@ -228,18 +240,24 @@ class LandingPage extends React.Component {
           className="angle-top pt-40 pb-40 px-10
                      bg-gray-200 flex flex-col items-center"
         >
-          <Card title="About Me" img={skillsImg}>
-            <p>
-              <strong>Hallo!</strong> <br />
-              Ich heiße Roland, bin 19 Jahre alt und habe Spaß an der
-              Softwareentwicklung.
-              <br />
-              Zurzeit leiste ich meinen Wehrdienst ab und werde im Frühjahre
-              2022 and der TU-Wien mit meinem Informatikstuium beginnen. <br />
-              Mein Ziel ist es nebenbei schon als Softwarentwickler zu arbeiten
-              um bereits wärend des Stuiums berufserfahrungen zu sammeln und mit
-              dem Verdienst mein Studium zu unterstützen.
-            </p>
+          <Card title="About Me">
+            <div className=" flex w-full">
+              <div className="w-3/5 mr-7 flex flex-col justify-center">
+                <p className="font-round">
+                  <strong>{ts.aboutme.t1}</strong> <br />
+                </p>
+                <p className="font-round mt-1">{ts.aboutme.t2}</p>
+                <p className="font-round mt-1 text-justify ">{ts.aboutme.t3}</p>
+              </div>
+              <UsableImage classDiv="w-2/5" src={skillsImg} alt="" />
+            </div>
+
+            <div className="mt-5 flex w-full">
+              <UsableImage classDiv="w-2/5" src={skillsImg} alt="" />
+              <div className="w-3/5 ml-7 flex flex-col justify-center">
+                <p className="font-round mt-1 text-justify ">{ts.aboutme.t4}</p>
+              </div>
+            </div>
           </Card>
           <Card title="Skills" img={skills2Img} isInverted={true}>
             <div className="">

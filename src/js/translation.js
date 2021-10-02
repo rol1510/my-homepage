@@ -110,6 +110,28 @@ const stringDict = {
         de: "✔️ 2012 - 2016",
       },
     },
+    languages: {
+      german: {
+        lang: {
+          en: "German",
+          de: "Deutsch",
+        },
+        desc: {
+          en: "Native",
+          de: "Muttersprache",
+        },
+      },
+      english: {
+        lang: {
+          en: "English",
+          de: "Englisch",
+        },
+        desc: {
+          en: "Fluent",
+          de: "Fließend",
+        },
+      },
+    },
   },
 
   experiance: {

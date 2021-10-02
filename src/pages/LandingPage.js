@@ -3,6 +3,8 @@ import { MySocialMediaLinks } from "../components/comps";
 import "intersection-observer";
 import { withIsVisible } from "react-is-visible";
 import { translator, translatorStrings as ts } from "../js/translation";
+import IsVisible from "react-is-visible/lib/IsVisible";
+import icons from "../js/icons";
 
 import profileImg from "../imgs/Foto-2020-2.png";
 import skillsImg from "../imgs/skills.png";
@@ -10,8 +12,8 @@ import skills2Img from "../imgs/skills-2.png";
 import educationImg from "../imgs/education.png";
 import teamImg from "../imgs/team.png";
 import laptopImg from "../imgs/laptop.png";
-import icons from "../js/icons";
-import IsVisible from "react-is-visible/lib/IsVisible";
+import germanFlagImg from "../imgs/language-icon-de.png";
+import ukUsFlagImg from "../imgs/language-icon-en.png";
 
 function MeCard(props) {
   // 😃 or 😊 (on hover)
@@ -162,7 +164,7 @@ function TimelineComp(props) {
 }
 
 function Timeline(props) {
-  return <ul>{props.children}</ul>;
+  return <ul className={props.className}>{props.children}</ul>;
 }
 
 function SkillPoint(props) {
@@ -185,6 +187,24 @@ function SkillsContainer(props) {
       <div className="flex justify-center items-center w-3/4 mt-4">
         {props.children}
       </div>
+    </div>
+  );
+}
+
+function LanguageElement(props) {
+  return (
+    <div>
+      <div className="flex justify-center items-center">
+        <img
+          className="rounded-full w-5 h-5 "
+          src={props.src}
+          alt={props.alt}
+        />
+        <p className="font-round ml-2 my-1">{props.lang}</p>
+      </div>
+      <p className="font-round text-sm text-center text-gray-500">
+        {props.text}
+      </p>
     </div>
   );
 }
@@ -373,8 +393,8 @@ class LandingPage extends React.Component {
           </Card>
 
           <Card title={ts.education.title} img={educationImg}>
-            <div className="flex flex-col items-center justify-center">
-              <Timeline>
+            <div className="flex h-full -ml-3  flex-row items-center justify-evenly">
+              <Timeline className="w-2/3">
                 <TimelineComp
                   title={ts.education.tu.title}
                   time={ts.education.tu.timespan}
@@ -396,14 +416,25 @@ class LandingPage extends React.Component {
                 time="2008 - 2012"
               ></TimelineComp> */}
               </Timeline>
-              {/* <p className="mt-8 mb-4 ">
-                Deutsch - Muttersprache <br />
-                Englisch - Fließend in Wort und Schrift
-              </p> */}
+              <div className="w-0.5 h-5/6 bg-gray-200 rounded-full"></div>
+              <div className="space-y-6 w-1/3">
+                <LanguageElement
+                  lang={ts.education.languages.german.lang}
+                  text={ts.education.languages.german.desc}
+                  src={germanFlagImg}
+                  alt="german flag"
+                />
+                <LanguageElement
+                  lang={ts.education.languages.english.lang}
+                  text={ts.education.languages.english.desc}
+                  src={ukUsFlagImg}
+                  alt="UK and US flag"
+                />
+              </div>
             </div>
           </Card>
           <Card title={ts.experiance.title} img={teamImg} isInverted={true}>
-            <Timeline>
+            <Timeline className="ml-3.5">
               <TimelineComp
                 title={ts.experiance.p3.title}
                 time={ts.experiance.p3.timespan}

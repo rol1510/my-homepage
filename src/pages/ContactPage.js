@@ -4,6 +4,7 @@ import secrets from "../secrets";
 import { Formik, Field, Form, useField } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import { translator, ts } from "../js/translation";
 
 // TODO: Move sanitize into a global file
 function sanitize(string) {
@@ -49,6 +50,11 @@ class ContactPage extends React.Component {
     super(props);
 
     this.state = { blockSubmit: false, requestDone: true };
+
+    // Else it will NOT update right
+    translator.registerToOnChange(() => {
+      this.forceUpdate();
+    });
   }
 
   sendEmail(from_name, from_email, message) {
@@ -72,11 +78,7 @@ class ContactPage extends React.Component {
           },
           secrets.EMAILJS_USER_ID
         ),
-        {
-          pending: "Sending E-Mail",
-          success: "E-Mail Successful 👌",
-          error: "Sending failed 😢",
-        }
+        ts.contactPage.toasts
       )
       .then(
         (result) => {
@@ -97,7 +99,9 @@ class ContactPage extends React.Component {
         className="bg-gray-100 p-6 shadow-md rounded-xl
         mx-5 mt-6 md:mt-14 md:m-auto md:w-2/3 lg:w-1/3"
       >
-        <p className="mt-2 mb-4 text-center text-2xl font-round">Contact Me!</p>
+        <p className="mt-2 mb-4 text-center text-2xl font-round">
+          {ts.contactPage.title}
+        </p>
 
         <Formik
           initialValues={{
@@ -107,14 +111,14 @@ class ContactPage extends React.Component {
           }}
           validationSchema={Yup.object({
             name: Yup.string()
-              .max(50, "Must be less than 50 characters")
-              .required("Enter your Name"),
+              .max(50, ts.contactPage.errors.e1)
+              .required(ts.contactPage.errors.e2),
             email: Yup.string()
-              .email("Invalid E-Mail")
-              .required("E-Mail Required"),
+              .email(ts.contactPage.errors.e3)
+              .required(ts.contactPage.errors.e4),
             message: Yup.string()
-              .max(1024 * 10, "Message to long")
-              .required("Enter your Message"),
+              .max(10000, ts.contactPage.errors.e5)
+              .required(ts.contactPage.errors.e6),
           })}
           onSubmit={(values, actions) => {
             // block all further submits
@@ -145,11 +149,11 @@ class ContactPage extends React.Component {
               />
 
               <MyTextInput
-                label="Message"
+                label={ts.contactPage.messageTitle}
                 name="message"
                 as="textarea"
                 type="text"
-                placeholder="Your message here ..."
+                placeholder={ts.contactPage.messagePlaceholder}
                 rows="6"
               />
 

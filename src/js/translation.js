@@ -21,6 +21,65 @@ const stringDict = {
     },
   },
 
+  contactPage: {
+    title: {
+      en: "Contact Me!",
+      de: "Kontakt",
+    },
+
+    messageTitle: {
+      en: "Message",
+      de: "Nachricht",
+    },
+    messagePlaceholder: {
+      en: "Your message here ...",
+      de: "Deine Nachricht ...",
+    },
+
+    errors: {
+      e1: {
+        en: "Must be less than 50 characters",
+        de: "Maximal 50 Zeichen",
+      },
+      e2: {
+        en: "Name is required",
+        de: "Name wird benötigt",
+      },
+      e3: {
+        en: "Invalid E-Mail",
+        de: "Ungültige E-Mail",
+      },
+      e4: {
+        en: "E-Mail is required",
+        de: "E-Mail wird benötigt",
+      },
+      e5: {
+        en: "Message to long (max 10000 Zeichen)",
+        de: "Nachricht zu lang (max 10000 Zeichen)",
+      },
+      e6: {
+        en: "Don't forget about your message",
+        de: "Vergiss nicht auf deine Nachricht",
+      },
+    },
+
+    // be carefull changing this. the whole object is used
+    toasts: {
+      pending: {
+        en: "Sending E-Mail",
+        de: "E-Mail wird gesendet",
+      },
+      success: {
+        en: "E-Mail Successful 👌",
+        de: "E-Mail Erfolgreich 👌",
+      },
+      error: {
+        en: "Sending failed 😢",
+        de: "Senden fehlgeschlagen 😢",
+      },
+    },
+  },
+
   mecard: {
     greeting: {
       en: "Hello!",

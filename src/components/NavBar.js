@@ -28,7 +28,10 @@ function LanguageSelector(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative " onMouseLeave={() => setOpen(false)}>
+    <div
+      className={`relative ${props.className}`}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button
         className="relative py-1 px-2 rounded-full border transition z-50
         border-transparent transform hover:border-gray-200 hover:scale-110"
@@ -68,7 +71,7 @@ function LanguageSelector(props) {
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { expanded: false, scrollPercentage: 0 };
 
     this.handleExpandLinks = this.handleExpandLinks.bind(this);
 
@@ -77,6 +80,29 @@ class NavBar extends React.Component {
       this.forceUpdate();
     });
   }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.listenToScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.listenToScroll);
+  }
+
+  listenToScroll = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    const scrolled = winScroll / height;
+
+    this.setState({
+      scrollPercentage: scrolled,
+    });
+  };
 
   handleExpandLinks(event) {
     this.setState({ expanded: !this.state.expanded });
@@ -91,14 +117,17 @@ class NavBar extends React.Component {
 
     const dotStyle = "bg-gray-500 w-1.5 h-1.5 rounded-full m-0.5";
     return (
-      <header>
-        <div className="flex justify-between items-center m-5">
+      <header
+        className={`sticky bg-white w-screen top-0 z-50 transition
+                    ${this.state.scrollPercentage > 0 ? "shadow-md" : ""}`}
+      >
+        <div className="flex justify-between items-center p-4">
           <Link to="/">
             <div className="flex items-center">
               <div
-                className="w-12 h-12 bg-blue-700
+                className="w-10 h-10 bg-blue-700
                          flex justify-center items-center
-                         text-white font-round font-bold text-3xl
+                         text-white font-round font-bold text-2xl
                          rounded-full
                          bg-gradient-to-tr from-purple-700 to-blue-700"
               >
@@ -114,8 +143,7 @@ class NavBar extends React.Component {
                 {(matches.medium || matches.large) && (
                   <div className="flex justify-between items-center">
                     <NavBarLinks />
-                    <div className="mx-3"></div>
-                    <LanguageSelector />
+                    <LanguageSelector className="ml-4 mr-6" />
                   </div>
                 )}
 

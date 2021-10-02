@@ -456,13 +456,13 @@ class LandingPage extends React.Component {
             </Timeline>
           </Card>
 
-          <Card title="Projekte">
-            <div className="flex  flex-col lg:flex-row">
+          {/* <Card title="Projekte">
+            <div className="flex flex-col lg:flex-row space-x-6">
               <div>Diplomarbeit</div>
               <div>Personal Webside</div>
               <div>Shop Website - WIP</div>
             </div>
-          </Card>
+          </Card> */}
         </div>
         <div className="angle-top-invert py-16 -mt-28 bg-white"></div>
       </div>

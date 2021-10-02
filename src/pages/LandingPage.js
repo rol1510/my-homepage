@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MySocialMediaLinks } from "../components/comps";
 import "intersection-observer";
 import { withIsVisible } from "react-is-visible";
-import { translator, translatorStrings as ts } from "../js/translation";
+import { translator, ts } from "../js/translation";
 import IsVisible from "react-is-visible/lib/IsVisible";
 import icons from "../js/icons";
 

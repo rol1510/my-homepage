@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 import { NavBarLinks } from "./comps";
-import { translator, translatorStrings as ts } from "../js/translation";
+import { translator, ts } from "../js/translation";
 
 function LanguageButton(props) {
   return (

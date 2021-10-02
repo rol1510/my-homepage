@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import secrets from "../secrets";
+import { translator, ts } from "../js/translation";
 
 import { ReactComponent as MailIcon } from "../imgs/mail.svg";
 import { ReactComponent as GithubIcon } from "../imgs/github.svg";
@@ -23,10 +24,14 @@ function NavBarLinks() {
   return (
     <>
       <Link to="/">
-        <p className="mx-8 text-gray-600 hover:underline">About Me</p>
+        <p className="mx-8 text-gray-600 hover:underline">
+          {ts.navbar.aboutme}
+        </p>
       </Link>
       <Link to="/contact">
-        <p className="mx-8 text-gray-600 hover:underline">Kontakt</p>
+        <p className="mx-8 text-gray-600 hover:underline">
+          {ts.navbar.contact}
+        </p>
       </Link>
     </>
   );

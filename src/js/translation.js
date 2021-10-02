@@ -1,4 +1,26 @@
 const stringDict = {
+  navbar: {
+    aboutme: {
+      en: "About Me",
+      de: "Über mich",
+    },
+    contact: {
+      en: "Contact",
+      de: "Kontakt",
+    },
+  },
+
+  footer: {
+    titleContact: {
+      en: "Contact",
+      de: "Kontakt",
+    },
+    titleInfo: {
+      en: "Content",
+      de: "Inhalt",
+    },
+  },
+
   mecard: {
     greeting: {
       en: "Hello!",
@@ -253,4 +275,4 @@ console.log("default language set to:", getDefaultLanguage());
 // Set the initial language
 translator.setLang(getDefaultLanguage());
 
-export { translator, translatorStrings };
+export { translator, translatorStrings as ts };

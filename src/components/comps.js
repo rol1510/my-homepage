@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import secrets from "../secrets";
 import { translator, ts } from "../js/translation";
+import { useLocation } from "react-router-dom";
 
 import { ReactComponent as MailIcon } from "../imgs/mail.svg";
 import { ReactComponent as GithubIcon } from "../imgs/github.svg";
@@ -28,10 +29,16 @@ function NavBarLink(props) {
   );
 }
 
-function NavBarLinks() {
+function NavBarLinks(props) {
+  const location = useLocation();
+
+  const showAboutMe = () => {
+    return location.pathname !== "/";
+  };
+
   return (
     <>
-      <NavBarLink to="/" text={ts.navbar.aboutme} />
+      {showAboutMe() && <NavBarLink to="/" text={ts.navbar.aboutme} />}
       <NavBarLink to="/contact" text={ts.navbar.contact} />
     </>
   );

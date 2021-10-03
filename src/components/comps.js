@@ -20,19 +20,19 @@ function MySocialMediaLinks() {
   );
 }
 
+function NavBarLink(props) {
+  return (
+    <Link to={props.to}>
+      <p className="mx-8 text-gray-600 hover:underline">{props.text}</p>
+    </Link>
+  );
+}
+
 function NavBarLinks() {
   return (
     <>
-      <Link to="/">
-        <p className="mx-8 text-gray-600 hover:underline">
-          {ts.navbar.aboutme}
-        </p>
-      </Link>
-      <Link to="/contact">
-        <p className="mx-8 text-gray-600 hover:underline">
-          {ts.navbar.contact}
-        </p>
-      </Link>
+      <NavBarLink to="/" text={ts.navbar.aboutme} />
+      <NavBarLink to="/contact" text={ts.navbar.contact} />
     </>
   );
 }
@@ -43,4 +43,4 @@ text-white font-round
 cursor-pointer
 transform transition hover:scale-110`;
 
-export { MySocialMediaLinks, NavBarLinks, styleBlueButton };
+export { MySocialMediaLinks, NavBarLinks, NavBarLink, styleBlueButton };

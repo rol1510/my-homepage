@@ -6,7 +6,7 @@ import { translator, ts } from "../js/translation";
 import { ReactComponent as MailIcon } from "../imgs/mail.svg";
 import { ReactComponent as GithubIcon } from "../imgs/github.svg";
 import { ReactComponent as LinkedInIcon } from "../imgs/linkedin.svg";
-import { MySocialMediaLinks, NavBarLinks } from "./comps";
+import { MySocialMediaLinks, NavBarLinks, NavBarLink } from "./comps";
 
 class Footer extends React.Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class Footer extends React.Component {
             <div className={h1Formatting}>{ts.footer.titleInfo}</div>
             <div className="flex">
               <NavBarLinks />
+              <NavBarLink to="/credits" text="Credits" />
             </div>
           </div>
         </div>

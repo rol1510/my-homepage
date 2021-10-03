@@ -2,6 +2,7 @@ import React from "react";
 import LandingPage from "./pages/LandingPage";
 import ContactPage from "./pages/ContactPage";
 import ErrorPage from "./pages/ErrorPage";
+import CreditPage from "./pages/CreditPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -29,6 +30,7 @@ function App() {
               <Route exact path="/test" component={Test} />
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/credits" component={CreditPage} />
               <Route>
                 <ErrorPage message="404, Page not found" />
               </Route>

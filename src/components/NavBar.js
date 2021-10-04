@@ -118,8 +118,14 @@ class NavBar extends React.Component {
     const dotStyle = "bg-gray-500 w-1.5 h-1.5 rounded-full m-0.5";
     return (
       <header
-        className={`sticky bg-white w-screen top-0 z-50 transition
-                    ${this.state.scrollPercentage > 0 ? "shadow-md" : ""}`}
+        // on mobile bg has to be transaprent or else the nice glow around the
+        // picture will clip
+        className={`sticky bg-white  w-screen top-0 z-50 transition
+                    ${
+                      this.state.scrollPercentage > 0
+                        ? "shadow-md"
+                        : "mobile:bg-transparent"
+                    }`}
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">

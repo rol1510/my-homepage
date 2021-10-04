@@ -67,11 +67,20 @@ module.exports = {
         225: "55rem",
         250: "60rem",
       },
+      screens: {
+        mobile: { max: "600px" },
+        desktop: { min: "601px" },
+        half: { min: "601px", max: "980px" },
+        full: { min: "981px" },
+      },
+      scale: {
+        80: "0.8",
+      },
     },
   },
   variants: {
-    backgroundColor: ["active", "hover", "focus"],
-    borderWidth: ["active", "hover", "focus"],
+    backgroundColor: ["active", "hover", "focus", "responsive"],
+    borderWidth: ["active", "hover", "focus", "responsive"],
     animation: ["responsive", "motion-safe", "motion-reduce"],
   },
   plugins: [],

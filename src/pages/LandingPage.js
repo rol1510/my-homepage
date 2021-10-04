@@ -20,8 +20,15 @@ function MeCard(props) {
   const [currentEmoji, setEmoji] = useState("😃");
 
   return (
-    <div className="relative my-8 md:my-16 flex justify-center items-center">
-      <div className="relative flex items-center justify-center w-72 h-72 ">
+    <div
+      className="relative my-8 md:my-16 flex justify-center items-center
+                 mobile:flex-col"
+    >
+      {/* the image */}
+      <div
+        className="relative flex items-center justify-center w-72 h-72
+                   mobile:-mt-10 mobile:transform mobile:scale-80"
+      >
         <div className="absolute top-0 left-0 w-full h-full ">
           <div
             className="absolute top-0 left-0
@@ -56,7 +63,7 @@ function MeCard(props) {
       </div>
 
       {/* Box right of the image */}
-      <div className="ml-12">
+      <div className="desktop:ml-12 mobile:mt-6 mobile:mb-4">
         <p
           className="text-3xl font-round mb-4"
           onMouseEnter={() => {
@@ -94,9 +101,12 @@ function Card(props) {
         <div
           className={`w-full lg:w-250 m-6 bg-white rounded-md shadow-md
                       transition duration-300 ease-in transform
-          ${
-            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-52"
-          }`}
+                      ${props.className}
+                      ${
+                        visible
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 -translate-x-52"
+                      }`}
         >
           <div className="w-full relative">
             <div className={`absolute ${props.isInverted ? "right-0" : ""}`}>
@@ -114,15 +124,18 @@ function Card(props) {
             </div>
           </div>
 
-          <div className="flex justify-between p-8">
+          <div
+            className={`flex justify-between mobile:flex-col-reverse p-8
+                        ${props.paddingOverride}`}
+          >
             {props.isInverted && props.img && (
-              <div className="w-1/2 flex items-center">
+              <div className="desktop:w-1/2 flex items-center">
                 <img src={props.img} className="rounded shadow" />
               </div>
             )}
             <div className="pt-8 w-full">{props.children}</div>
             {!props.isInverted && props.img && (
-              <div className="w-1/2 flex items-center">
+              <div className="desktop:w-1/2 flex items-center">
                 <img src={props.img} className="rounded shadow" />
               </div>
             )}
@@ -147,7 +160,7 @@ function UsableImage(props) {
 
 function TimelineComp(props) {
   return (
-    <li className="mt-3">
+    <li className="mb-3">
       <div className="flex items-center">
         <div
           className="w-6 h-6 ml-4 mr-6 flex-shrink-0
@@ -164,14 +177,17 @@ function TimelineComp(props) {
 }
 
 function Timeline(props) {
-  return <ul className={props.className}>{props.children}</ul>;
+  return <ul className={`${props.className}`}>{props.children}</ul>;
 }
 
 function SkillPoint(props) {
   const Icon = props.icon;
 
   return (
-    <div className={`w-20 mx-2 ${props.animate ? "animate-icon" : ""}`}>
+    <div
+      className={`w-20 desktop:mx-2 mobile:my-2
+                  ${props.animate ? "animate-icon" : ""}`}
+    >
       <div className="w-8 h-8 mx-auto">
         {typeof props.icon !== "undefined" && <Icon />}
       </div>
@@ -182,9 +198,17 @@ function SkillPoint(props) {
 
 function SkillsContainer(props) {
   return (
-    <div className="flex items-center justify-between mt-3">
-      <h1 className="text-xl w-1/4 text-center">{props.title}</h1>
-      <div className="flex justify-center items-center w-3/4 mt-4">
+    <div
+      className="flex items-center justify-between mt-3
+                 mobile:flex-col mobile:mt-5"
+    >
+      <h1 className="text-xl text-center desktop:w-1/4 desktop:pr-8">
+        {props.title}
+      </h1>
+      <div
+        className="flex flex-wrap justify-center items-center bg-gray-50 rounded
+                   w-3/4 mt-4 mobile:mt-2 pt-3 desktop:p-2 desktop:pt-4"
+      >
         {props.children}
       </div>
     </div>
@@ -260,141 +284,155 @@ class LandingPage extends React.Component {
         <MeCard />
         <div
           className="angle-top pt-40 pb-40 px-10
-                     bg-gray-200 flex flex-col items-center"
+                     bg-gray-200 flex flex-col items-center
+                     mobile:pt-16 mobile:px-3"
         >
+          {/* About Me Card */}
           <Card title={ts.aboutme.title}>
-            <div className=" flex w-full">
-              <div className="w-3/5 mr-7 flex flex-col justify-center">
+            <div className="flex w-full mobile:flex-col">
+              <div
+                className="desktop:w-3/5 desktop:mr-7 mobile:mb-4
+                           flex flex-col justify-center"
+              >
                 <p className="font-round">
                   <strong>{ts.aboutme.t1}</strong> <br />
                 </p>
                 <p className="font-round mt-1">{ts.aboutme.t2}</p>
                 <p className="font-round mt-1 text-justify ">{ts.aboutme.t3}</p>
               </div>
-              <UsableImage classDiv="w-2/5" src={skillsImg} alt="" />
+              <UsableImage classDiv="desktop:w-2/5" src={skillsImg} alt="" />
             </div>
 
-            <div className="mt-5 flex w-full">
-              <UsableImage classDiv="w-2/5" src={laptopImg} alt="" />
-              <div className="w-3/5 ml-7 flex flex-col justify-center">
+            <div className="mt-5 flex w-full mobile:flex-col-reverse">
+              <UsableImage classDiv="desktop:w-2/5" src={laptopImg} alt="" />
+              <div
+                className="desktop:w-3/5 desktop:ml-7 mobile:mb-4
+                           flex flex-col justify-center"
+              >
                 <p className="font-round mt-1 text-justify ">{ts.aboutme.t4}</p>
               </div>
             </div>
           </Card>
-          <Card title={ts.skills.title} isInverted={true}>
-            <div className="">
-              <SkillsContainer title={ts.skills.frontend}>
-                <SkillPoint
-                  animate={this.state.icons[0]}
-                  text="JavaScript"
-                  icon={icons.IconJavaScript}
-                />
-                <SkillPoint
-                  animate={this.state.icons[1]}
-                  text="HTML"
-                  icon={icons.IconHTML}
-                />
-                <SkillPoint
-                  animate={this.state.icons[2]}
-                  text="CSS"
-                  icon={icons.IconCSS}
-                />
-                <SkillPoint
-                  animate={this.state.icons[3]}
-                  text="React"
-                  icon={icons.IconReact}
-                />
-                <SkillPoint
-                  animate={this.state.icons[4]}
-                  text="Tailwind"
-                  icon={icons.IconTailwind}
-                />
-              </SkillsContainer>
+          {/* Skills Card */}
+          <Card
+            title={ts.skills.title}
+            isInverted={false}
+            paddingOverride="mobile:px-0"
+          >
+            <SkillsContainer title={ts.skills.frontend}>
+              <SkillPoint
+                animate={this.state.icons[0]}
+                text="JavaScript"
+                icon={icons.IconJavaScript}
+              />
+              <SkillPoint
+                animate={this.state.icons[1]}
+                text="HTML"
+                icon={icons.IconHTML}
+              />
+              <SkillPoint
+                animate={this.state.icons[2]}
+                text="CSS"
+                icon={icons.IconCSS}
+              />
+              <SkillPoint
+                animate={this.state.icons[3]}
+                text="React"
+                icon={icons.IconReact}
+              />
+              <SkillPoint
+                animate={this.state.icons[4]}
+                text="Tailwind"
+                icon={icons.IconTailwind}
+              />
+            </SkillsContainer>
 
-              <SkillsContainer title={ts.skills.backend}>
-                <SkillPoint
-                  animate={this.state.icons[5]}
-                  text="Python"
-                  icon={icons.IconPython}
-                />
-                <SkillPoint
-                  animate={this.state.icons[6]}
-                  text="NodeJs"
-                  icon={icons.IconNodeJs}
-                />
-                <SkillPoint
-                  animate={this.state.icons[7]}
-                  text="Electron"
-                  icon={icons.IconElectron}
-                />
-                <SkillPoint
-                  animate={this.state.icons[8]}
-                  text="Linux"
-                  icon={icons.IconLinux}
-                />
-                <SkillPoint
-                  animate={this.state.icons[9]}
-                  text="Windows"
-                  icon={icons.IconWindows}
-                />
-              </SkillsContainer>
+            <SkillsContainer title={ts.skills.backend}>
+              <SkillPoint
+                animate={this.state.icons[5]}
+                text="Python"
+                icon={icons.IconPython}
+              />
+              <SkillPoint
+                animate={this.state.icons[6]}
+                text="NodeJs"
+                icon={icons.IconNodeJs}
+              />
+              <SkillPoint
+                animate={this.state.icons[7]}
+                text="Electron"
+                icon={icons.IconElectron}
+              />
+              <SkillPoint
+                animate={this.state.icons[8]}
+                text="Linux"
+                icon={icons.IconLinux}
+              />
+              <SkillPoint
+                animate={this.state.icons[9]}
+                text="Windows"
+                icon={icons.IconWindows}
+              />
+            </SkillsContainer>
 
-              <SkillsContainer title={ts.skills.tooling}>
-                <SkillPoint
-                  animate={this.state.icons[10]}
-                  text="Git"
-                  icon={icons.IconGit}
-                />
-                <SkillPoint
-                  animate={this.state.icons[11]}
-                  text="GitHub"
-                  icon={icons.IconGitHub}
-                />
-                <SkillPoint
-                  animate={this.state.icons[12]}
-                  text="NPM"
-                  icon={icons.IconNPM}
-                />
-              </SkillsContainer>
+            <SkillsContainer title={ts.skills.tooling}>
+              <SkillPoint
+                animate={this.state.icons[10]}
+                text="Git"
+                icon={icons.IconGit}
+              />
+              <SkillPoint
+                animate={this.state.icons[11]}
+                text="GitHub"
+                icon={icons.IconGitHub}
+              />
+              <SkillPoint
+                animate={this.state.icons[12]}
+                text="NPM"
+                icon={icons.IconNPM}
+              />
+            </SkillsContainer>
 
-              <SkillsContainer title={ts.skills.other}>
-                <SkillPoint
-                  animate={this.state.icons[13]}
-                  text="Figma"
-                  icon={icons.IconFigma}
-                />
-                <SkillPoint
-                  animate={this.state.icons[14]}
-                  text="Adobe Xd"
-                  icon={icons.IconAdobeXd}
-                />
-                <SkillPoint
-                  animate={this.state.icons[15]}
-                  text="Word"
-                  icon={icons.IconWord}
-                />
-                <SkillPoint
-                  animate={this.state.icons[16]}
-                  text="Excel"
-                  icon={icons.IconExcel}
-                />
-                <SkillPoint
-                  animate={this.state.icons[17]}
-                  text="PowerPoint"
-                  icon={icons.IconPowerPoint}
-                />
-                <SkillPoint
-                  animate={this.state.icons[18]}
-                  text="Outlook"
-                  icon={icons.IconOutlook}
-                />
-              </SkillsContainer>
-            </div>
+            <SkillsContainer title={ts.skills.other}>
+              <SkillPoint
+                animate={this.state.icons[13]}
+                text="Figma"
+                icon={icons.IconFigma}
+              />
+              <SkillPoint
+                animate={this.state.icons[14]}
+                text="Adobe Xd"
+                icon={icons.IconAdobeXd}
+              />
+              <SkillPoint
+                animate={this.state.icons[15]}
+                text="Word"
+                icon={icons.IconWord}
+              />
+              <SkillPoint
+                animate={this.state.icons[16]}
+                text="Excel"
+                icon={icons.IconExcel}
+              />
+              <SkillPoint
+                animate={this.state.icons[17]}
+                text="PowerPoint"
+                icon={icons.IconPowerPoint}
+              />
+              <SkillPoint
+                animate={this.state.icons[18]}
+                text="Outlook"
+                icon={icons.IconOutlook}
+              />
+            </SkillsContainer>
           </Card>
-
+          {/* Edjucation Card */}
           <Card title={ts.education.title} img={educationImg}>
-            <div className="flex h-full -ml-3  flex-row items-center justify-evenly">
-              <Timeline className="w-2/3">
+            <div
+              className="flex h-full -ml-3 items-center justify-evenly
+                         mobile:flex-col"
+            >
+              <Timeline className="desktop:w-2/3">
                 <TimelineComp
                   title={ts.education.tu.title}
                   time={ts.education.tu.timespan}
@@ -416,7 +454,10 @@ class LandingPage extends React.Component {
                 time="2008 - 2012"
               ></TimelineComp> */}
               </Timeline>
-              <div className="w-0.5 h-5/6 bg-gray-200 rounded-full"></div>
+              <div
+                className="w-0.5 h-5/6 bg-gray-200 rounded-full
+                mobile:w-5/6 mobile:h-0.5 mobile:mt-3 mobile:mb-5"
+              ></div>
               <div className="space-y-6 w-1/3">
                 <LanguageElement
                   lang={ts.education.languages.german.lang}
@@ -433,8 +474,9 @@ class LandingPage extends React.Component {
               </div>
             </div>
           </Card>
-          <Card title={ts.experiance.title} img={teamImg} isInverted={true}>
-            <Timeline className="ml-3.5">
+          {/* Experiance Card */}
+          <Card title={ts.experiance.title} img={teamImg} isInverted={false}>
+            <Timeline className="desktop:ml-3.5 mobile:mx-auto">
               <TimelineComp
                 title={ts.experiance.p3.title}
                 time={ts.experiance.p3.timespan}

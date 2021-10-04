@@ -12,10 +12,10 @@ function MySocialMediaLinks() {
   return (
     <div className="flex">
       <a href={secrets.LINK_LINKEDIN} target="_blank" rel="noopener noreferrer">
-        <LinkedInIcon className="w-8 h-8" />
+        <LinkedInIcon className="w-8 h-8 mobile:w-10 mobile:h-10" />
       </a>
       <a href={secrets.LINK_GITHUB} target="_blank" rel="noopener noreferrer">
-        <GithubIcon className="w-8 h-8 ml-2" />
+        <GithubIcon className="w-8 h-8 mobile:w-10 mobile:h-10 ml-2 mobile:ml-4" />
       </a>
     </div>
   );

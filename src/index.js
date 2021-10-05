@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "@firebase/analytics";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,6 +19,7 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
+const analytics = getAnalytics();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 import { NavBarLinks } from "./comps";
@@ -68,6 +68,23 @@ function LanguageSelector(props) {
   );
 }
 
+function Logo() {
+  return (
+    <div className="flex items-center">
+      <div
+        className="w-10 h-10 bg-blue-700
+           flex justify-center items-center
+           text-white font-round font-bold text-2xl
+           rounded-full
+           bg-gradient-to-tr from-purple-700 to-blue-700"
+      >
+        R
+      </div>
+      <p className="ml-2 text-xl font-round">Roland Strasser</p>
+    </div>
+  );
+}
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -110,9 +127,8 @@ class NavBar extends React.Component {
 
   render(props) {
     const queries = {
-      small: "(max-width: 599px)",
-      medium: "(min-width: 600px) and (max-width: 1199px)",
-      large: "(min-width: 1200px)",
+      mobile: "(max-width: 599px)",
+      desktop: "(min-width: 600px)",
     };
 
     const dotStyle = "bg-gray-500 w-1.5 h-1.5 rounded-full m-0.5";
@@ -129,31 +145,21 @@ class NavBar extends React.Component {
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">
-            <div className="flex items-center">
-              <div
-                className="w-10 h-10 bg-blue-700
-                         flex justify-center items-center
-                         text-white font-round font-bold text-2xl
-                         rounded-full
-                         bg-gradient-to-tr from-purple-700 to-blue-700"
-              >
-                R
-              </div>
-              <p className="ml-2 text-xl font-round">Roland Strasser</p>
-            </div>
+            <Logo />
           </Link>
 
+          {/* Links in normal mode, else draw the dots */}
           <Media queries={queries}>
             {(matches) => (
-              <Fragment>
-                {(matches.medium || matches.large) && (
+              <>
+                {matches.desktop && (
                   <div className="flex justify-between items-center">
                     <NavBarLinks />
                     <LanguageSelector className="ml-4 mr-6" />
                   </div>
                 )}
 
-                {matches.small && (
+                {matches.mobile && (
                   <button
                     className="w-12 h-12 hover:bg-gray-200 rounded-full
                                 flex justify-center items-center"
@@ -164,27 +170,27 @@ class NavBar extends React.Component {
                     <div className={dotStyle} />
                   </button>
                 )}
-              </Fragment>
+              </>
             )}
           </Media>
         </div>
-        <div>
-          <Media queries={queries}>
-            {(matches) => (
-              <Fragment>
-                {matches.small && this.state.expanded && (
-                  <div
-                    className="flex flex-col items-center
+
+        {/* Drop down */}
+        <Media queries={queries}>
+          {(matches) => (
+            <>
+              {matches.mobile && this.state.expanded && (
+                <div
+                  className="flex flex-col items-center
                                  animate-appear"
-                  >
-                    <NavBarLinks />
-                    <LanguageSelector />
-                  </div>
-                )}
-              </Fragment>
-            )}
-          </Media>
-        </div>
+                >
+                  <NavBarLinks />
+                  <LanguageSelector />
+                </div>
+              )}
+            </>
+          )}
+        </Media>
       </header>
     );
   }

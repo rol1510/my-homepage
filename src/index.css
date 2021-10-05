@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Removes the blue highlight box on mobile */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 @layer utilities {
   .animate-backwards {
     animation-direction: reverse;

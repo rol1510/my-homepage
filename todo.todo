@@ -1,3 +1,7 @@
+Do Better:
+  ☐ Website doesn't really tell what i like to do / What i will do for the company
+  ☐ Typografiy doesn't work, well it's no existing, but you get the point
+
 MVP:
   ✔ Write the about me card @done(21-09-30 17:01)
     ✔ add a different image @done(21-09-30 19:40)
@@ -5,52 +9,79 @@ MVP:
     ✔ add the missing icons @done(21-09-30 20:32)
   ✔ translate the education card @done(21-09-30 21:14)
   ✔ translate the experience card @done(21-09-30 21:14)
-  ☐ formtat the education card
-  ☐ formtat the experience card
-  ☐ add something to the Projects Card
-  ☐ translate the Contact form, NavBar and Footer
-  ☐ make responsive, but don't do to much. Transition are kinda useless, nobody's gonna see them
+  ✔ format the education card @done(21-10-02 12:02)
+  ✔ format the experience card @done(21-10-02 12:02)
+  ✔ translate the Contact form, NavBar and Footer @done(21-10-02 14:10)
+  ✔ make responsive, but don't do to much. Transition are kinda useless, nobody's gonna see them @done(21-10-05 19:57)
   ☐ go over 'General' and 'Fix' todos
+  ✔ decide on a place to put the languages @done(21-10-02 12:03)
+  ✔ add simple and stupid credits page @done(21-10-03 17:49)
+  ☐ analytics
+    ✔ default stuff @done(21-10-05 17:42)
+    ☐ time of visite
+    ☐ which page, how long
+    ☐ sroll distance
+    ☐ contact form tryed out, email send
+    ☐ language chagned + default + timestamp
+    ☐ links
+
   ☐ Create a teseting script and test on Windows, Linux, Mac and Android
-  ☐ decide on a place to put the languages
 
 General:
   ✔ implement a language system @done(21-09-26 15:01)
-    ☐ translation
+    ✔ translation @done(21-10-02 14:10)
   ✔ hosting @done(21-09-25 09:58)
   ✔ put email in secrets. I mean , it's to late but why not @done(21-09-25 09:58)
-  ☐ check if flalticon.com needs a reference ore something to be legal
-  ☐ refactor the page links. They are now copy pasted in three different spots
+  ✔ check if flalticon.com needs a reference ore something to be legal @done(21-10-03 17:49)
+  ✔ refactor the page links. They are now copy pasted in three different spots @done(21-10-03 17:49)
   ☐ change README.md
-  ☐ add some analytics (https://firebase.google.com/docs/analytics/get-started?platform=web#web-version-9)
+  ✔ add some analytics (https://firebase.google.com/docs/analytics/get-started?platform=web#web-version-9) @done(21-10-05 17:44)
   ✔ The Tab-Icon + Title isn't set yet @done(21-09-25 09:58)
-  ☐ make mobile friendly
-  ☐ NavBar Links feedback
-  ☐ make the NavBar sticky
-  ☐ put the landing page headers all on the same side?
+  ✔ make mobile friendly @done(21-10-05 19:57)
+  ✔ NavBar Links feedback @done(21-10-03 18:00)
+  ✔ make the NavBar sticky @done(21-10-02 12:40)
+  ✔ put the landing page headers all on the same side? @done(21-10-05 17:44)
+  ☐ remove/replace the react logos.pngs in public/ + chagne manifest
+  ✔ Link page on github and linked in @done(21-10-05 19:57)
+  ☐ jumping icons animate shadow
+  ☐ refactor landingPage, espacially the images
 
 Fix:
+  ✔ when deployed, the angled line breaks! @done(21-10-05 19:58)
   ✔ Remove "Toast Tester" Button in the contact form @done(21-09-25 12:21)
-  ☐ Contact page, if form not filled out properly, show error toast or grayout button or sth.
+  ✔ Contact page, if form not filled out properly, show error toast or grayout button or sth. @done(21-10-02 14:10)
   ☐ contact page: email text wraps weirdly on moblie
   ☐ mobile zoom is weird + page extends to the left issue
   ✔ 404 Page will use the public/404.html, which is still the firebase default @done(21-09-22 18:30)
   ☐ icon animation, on start every icon jumps once a the same time
-  ☐ Linux renders the checkmare and clock emoji different. Should we be concerned?
+  ☐ Linux/Android renders the checkmare and clock emoji different. Should we be concerned?
   ☐ add reduced-motion and motion-safe
   ☐ all text nunito
     ☐ NavBar Links
     ☐ my language skills
   ☐ the warnings
-  ☐ Maybe don't show the about me link in the NavBar if we're on the about me page to avoid confusion
+  ✔ Maybe don't show the about me link in the NavBar if we're on the about me page to avoid confusion @done(21-10-05 19:59)
+  ✔ put the footer in the footer tag @done(21-10-02 14:11)
+  ☐ the mobile navbar link drop down should close on page change or on leave like the language drop down
+  ☐ add a transition to the mobile navbar link drop like the language drop down
+  ☐ Make the uncroped profile Image no look as weird, could/should end up on google image search
+  ☐ about me text waaaaaayy to long, break it up somehow
+  ☐ language selector should have own file
+
+
+
+Future:
+  ☐ Add the projects card back in and fill with some content
+  ☐ SEO
+
 
 Home:
-  ☐ visuals
+  ✔ visuals @done(21-10-02 12:04)
   ☐ Sections:
-    ☐ About ME
-    ☐ Skills
-    ☐ Bildung
-    ☐ Berufserfahrung
+    ✔ About ME @done(21-10-02 12:05)
+    ✔ Skills @done(21-10-02 12:05)
+    ✔ Bildung @done(21-10-02 12:05)
+    ✔ Berufserfahrung @done(21-10-02 12:05)
     ☐ Projekte + Diplomarbeit
 
 Contact Page:

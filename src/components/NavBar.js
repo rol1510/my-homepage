@@ -29,12 +29,15 @@ function LanguageSelector(props) {
 
   return (
     <div
-      className={`relative ${props.className}`}
+      className={`relative mobile:mt-2 mobile:mb-4 ${props.className}`}
       onMouseLeave={() => setOpen(false)}
+      onScroll={() => setOpen(false)}
     >
       <button
-        className="relative py-1 px-2 rounded-full border transition z-50
-        border-transparent transform hover:border-gray-200 hover:scale-110"
+        className="relative py-1 px-2 mobile:py-2 mobile:px-5
+                   rounded-full border transition z-50
+                   border-transparent transform
+                   hover:border-gray-200 hover:scale-110"
         onClick={() => setOpen(!open)}
       >
         <p className="text-gray-700">
@@ -100,10 +103,12 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.listenToScroll);
+    window.addEventListener("touchmove", () => this.setDropdownState(false));
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.listenToScroll);
+    window.removeEventListener("touchmove", () => this.setDropdownState(false));
   }
 
   listenToScroll = () => {
@@ -122,13 +127,21 @@ class NavBar extends React.Component {
   };
 
   handleExpandLinks(event) {
-    this.setState({ expanded: !this.state.expanded });
+    this.toggleDropdownState();
+  }
+
+  setDropdownState(isOpen) {
+    this.setState({ expanded: isOpen });
+  }
+
+  toggleDropdownState() {
+    this.setDropdownState(!this.state.expanded);
   }
 
   render(props) {
     const queries = {
-      mobile: "(max-width: 599px)",
-      desktop: "(min-width: 600px)",
+      mobile: "(max-width: 699px)",
+      desktop: "(min-width: 700px)",
     };
 
     const dotStyle = "bg-gray-500 w-1.5 h-1.5 rounded-full m-0.5";
@@ -142,6 +155,9 @@ class NavBar extends React.Component {
                         ? "shadow-md"
                         : "mobile:bg-transparent"
                     }`}
+        onMouseLeave={() => {
+          this.setDropdownState(false);
+        }}
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">

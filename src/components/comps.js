@@ -24,7 +24,12 @@ function MySocialMediaLinks() {
 function NavBarLink(props) {
   return (
     <Link to={props.to}>
-      <p className="mx-8 text-gray-600 hover:underline">{props.text}</p>
+      <p
+        className="mx-8 text-gray-600 hover:underline
+                   mobile:my-2 mobile:text-lg"
+      >
+        {props.text}
+      </p>
     </Link>
   );
 }

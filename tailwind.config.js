@@ -68,9 +68,9 @@ module.exports = {
         250: "60rem",
       },
       screens: {
-        mobile: { max: "600px" },
-        desktop: { min: "601px" },
-        half: { min: "601px", max: "980px" },
+        mobile: { max: "700px" },
+        desktop: { min: "701px" },
+        half: { min: "701px", max: "980px" },
         full: { min: "981px" },
       },
       scale: {

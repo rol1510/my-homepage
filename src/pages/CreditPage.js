@@ -79,7 +79,11 @@ function Links(props) {
 
 export default function CreditPage(props) {
   return (
-    <div className="bg-gray-100 shadow w-150 text-center mx-auto rounded mt-10 p-6">
+    <div
+      className="bg-gray-100 p-6 mx-auto mt-10
+                 desktop:max-w-2xl mobile:mx-5
+                 shadow-md rounded-xl text-center"
+    >
       <h1 className="font-round font-bold text-xl">
         Credits for all the icons and pictures on this website
       </h1>

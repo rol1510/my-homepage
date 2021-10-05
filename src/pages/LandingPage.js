@@ -129,14 +129,20 @@ function Card(props) {
                         ${props.paddingOverride}`}
           >
             {props.isInverted && props.img && (
-              <div className="desktop:w-1/2 flex items-center">
-                <img src={props.img} className="rounded shadow" />
+              <div className="desktop:w-1/2 flex items-center justify-center">
+                <img
+                  src={props.img}
+                  className="rounded shadow mobile:max-h-80"
+                />
               </div>
             )}
             <div className="pt-8 w-full">{props.children}</div>
             {!props.isInverted && props.img && (
-              <div className="desktop:w-1/2 flex items-center">
-                <img src={props.img} className="rounded shadow" />
+              <div className="desktop:w-1/2 flex items-center justify-center">
+                <img
+                  src={props.img}
+                  className="rounded shadow mobile:max-h-80"
+                />
               </div>
             )}
           </div>
@@ -148,9 +154,11 @@ function Card(props) {
 
 function UsableImage(props) {
   return (
-    <div className={`my-auto rounded shadow overflow-hidden ${props.classDiv}`}>
+    <div
+      className={`my-auto mx-auto rounded shadow overflow-hidden ${props.classDiv}`}
+    >
       <img
-        className={`w-full object-cover ${props.className}`}
+        className={`w-full object-cover mobile:max-h-72 ${props.className}`}
         src={props.src}
         alt={props.alt}
       />
@@ -177,7 +185,7 @@ function TimelineComp(props) {
 }
 
 function Timeline(props) {
-  return <ul className={`${props.className}`}>{props.children}</ul>;
+  return <ul className={`desktop:p-4 ${props.className}`}>{props.children}</ul>;
 }
 
 function SkillPoint(props) {
@@ -185,7 +193,7 @@ function SkillPoint(props) {
 
   return (
     <div
-      className={`w-20 desktop:mx-2 mobile:my-2
+      className={`w-20 mx-2 my-2
                   ${props.animate ? "animate-icon" : ""}`}
     >
       <div className="w-8 h-8 mx-auto">
@@ -476,26 +484,28 @@ class LandingPage extends React.Component {
           </Card>
           {/* Experiance Card */}
           <Card title={ts.experiance.title} img={teamImg} isInverted={false}>
-            <Timeline className="desktop:ml-3.5 mobile:mx-auto">
-              <TimelineComp
-                title={ts.experiance.p3.title}
-                time={ts.experiance.p3.timespan}
-              >
-                {ts.experiance.p3.text}
-              </TimelineComp>
-              <TimelineComp
-                title={ts.experiance.p2.title}
-                time={ts.experiance.p2.timespan}
-              >
-                {ts.experiance.p2.text}
-              </TimelineComp>
-              <TimelineComp
-                title={ts.experiance.p1.title}
-                time={ts.experiance.p1.timespan}
-              >
-                {ts.experiance.p1.text}
-              </TimelineComp>
-            </Timeline>
+            <div className="mobile:flex justify-center">
+              <Timeline className="mobile:mx-auto #">
+                <TimelineComp
+                  title={ts.experiance.p3.title}
+                  time={ts.experiance.p3.timespan}
+                >
+                  {ts.experiance.p3.text}
+                </TimelineComp>
+                <TimelineComp
+                  title={ts.experiance.p2.title}
+                  time={ts.experiance.p2.timespan}
+                >
+                  {ts.experiance.p2.text}
+                </TimelineComp>
+                <TimelineComp
+                  title={ts.experiance.p1.title}
+                  time={ts.experiance.p1.timespan}
+                >
+                  {ts.experiance.p1.text}
+                </TimelineComp>
+              </Timeline>
+            </div>
           </Card>
 
           {/* <Card title="Projekte">

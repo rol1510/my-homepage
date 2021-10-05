@@ -96,8 +96,9 @@ class ContactPage extends React.Component {
   render() {
     return (
       <div
-        className="bg-gray-100 p-6 shadow-md rounded-xl
-        mx-5 mt-6 md:mt-14 md:m-auto md:w-2/3 lg:w-1/3"
+        className="bg-gray-100 p-6  mx-5 mt-6
+                   desktop:mt-14 desktop:m-auto desktop:max-w-lg
+                   shadow-md rounded-xl"
       >
         <p className="mt-2 mb-4 text-center text-2xl font-round">
           {ts.contactPage.title}

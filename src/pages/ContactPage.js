@@ -179,10 +179,13 @@ class ContactPage extends React.Component {
           )}
         </Formik>
 
-        <p className="mt-8 mb-0 text-md text-gray-700 font-round">
+        <p
+          className="mt-8 mb-0 text-md text-gray-700 font-round text-center
+                     mobile:flex mobile:flex-col"
+        >
           E-Mail
           <a
-            className="ml-5 hover:underline"
+            className="desktop:ml-4 hover:underline"
             href={`mailto:${secrets.CONTACT_EMAIL}`}
           >
             {secrets.CONTACT_EMAIL}

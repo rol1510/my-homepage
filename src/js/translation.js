@@ -162,7 +162,7 @@ const stringDict = {
       },
       timespan: {
         en: "🕓 beginning March 2022",
-        de: "🕓 beginnent März 2022",
+        de: "🕓 beginnend März 2022",
       },
       text: {
         en: "Bachelor's Degree - Computer Science",
@@ -260,8 +260,8 @@ const stringDict = {
         de: "✔️ 4 Wochen | Sommer 2017",
       },
       text: {
-        en: "Electrical engineer at Elektron Franz Schlick GmbH",
-        de: "Elektrotechniker bei Elektron Franz Schlick GmbH",
+        en: "Electrical engineer at Elektro Franz Schlick GmbH",
+        de: "Elektrotechniker bei Elektro Franz Schlick GmbH",
       },
     },
   },

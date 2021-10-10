@@ -1,3 +1,5 @@
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 const stringDict = {
   navbar: {
     aboutme: {
@@ -315,6 +317,14 @@ const translator = {
       throw new Error(
         `translator.setLang(): language Tag '${lang}' not in validLanguageTags`
       );
+
+    if (this.currentLang !== "") {
+      logEvent(getAnalytics(), "change_lang", {
+        from: this.currentLang,
+        to: lang,
+      });
+    }
+
     this.currentLang = lang;
     this.strings = filterStrings(stringDict, lang);
     translatorStrings = this.strings;
@@ -329,9 +339,16 @@ const translator = {
 // shorthand
 let translatorStrings = {};
 
-console.log("default language set to:", getDefaultLanguage());
+// Call after firebase init
+function init() {
+  console.log("default language set to:", getDefaultLanguage());
 
-// Set the initial language
-translator.setLang(getDefaultLanguage());
+  logEvent(getAnalytics(), "default_lang", {
+    lang: getDefaultLanguage(),
+  });
 
-export { translator, translatorStrings as ts };
+  // Set the initial language
+  translator.setLang(getDefaultLanguage());
+}
+
+export { translator, translatorStrings as ts, init };

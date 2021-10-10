@@ -5,6 +5,7 @@ import { Formik, Field, Form, useField } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { translator, ts } from "../js/translation";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 // TODO: Move sanitize into a global file
 function sanitize(string) {
@@ -84,11 +85,13 @@ class ContactPage extends React.Component {
         (result) => {
           console.log(result);
           this.setState({ requestDone: true });
+          logEvent(getAnalytics(), "send_email_success", result);
         },
         (error) => {
           console.log(error);
           // unblock submit button if the email fails
           this.setState({ requestDone: true, blockSubmit: false });
+          logEvent(getAnalytics(), "send_email_error", error);
         }
       );
   }

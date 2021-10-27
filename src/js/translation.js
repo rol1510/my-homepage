@@ -267,6 +267,7 @@ const stringDict = {
   },
 };
 
+// first will be the fallback if an invalid tag was requested
 const validLanguageTags = ["en", "de"];
 
 function getDefaultLanguage() {
@@ -313,10 +314,15 @@ const translator = {
   },
 
   setLang: function (lang) {
-    if (validLanguageTags.includes(lang) == false)
-      throw new Error(
+    if (validLanguageTags.includes(lang) === false) {
+      console.warn(
         `translator.setLang(): language Tag '${lang}' not in validLanguageTags`
       );
+      logEvent(getAnalytics(), "invalid_lang_selected", {
+        language: lang,
+      });
+      lang = validLanguageTags[0];
+    }
 
     if (this.currentLang !== "") {
       logEvent(getAnalytics(), "change_lang", {

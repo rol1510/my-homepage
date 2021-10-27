@@ -24,7 +24,6 @@ MVP:
     ☐ contact form tryed out, email send
     ☐ language chagned + default + timestamp
     ☐ links
-
   ☐ Create a teseting script and test on Windows, Linux, Mac and Android
 
 General:
@@ -41,17 +40,18 @@ General:
   ✔ NavBar Links feedback @done(21-10-03 18:00)
   ✔ make the NavBar sticky @done(21-10-02 12:40)
   ✔ put the landing page headers all on the same side? @done(21-10-05 17:44)
-  ☐ remove/replace the react logos.pngs in public/ + chagne manifest
+  ✔ remove/replace the react logos.pngs in public/ + chagne manifest @done(21-10-05 21:17)
   ✔ Link page on github and linked in @done(21-10-05 19:57)
   ☐ jumping icons animate shadow
   ☐ refactor landingPage, espacially the images
 
 Fix:
+  ☐ get new firebase api-credentials
   ✔ when deployed, the angled line breaks! @done(21-10-05 19:58)
   ✔ Remove "Toast Tester" Button in the contact form @done(21-09-25 12:21)
   ✔ Contact page, if form not filled out properly, show error toast or grayout button or sth. @done(21-10-02 14:10)
-  ☐ contact page: email text wraps weirdly on moblie
-  ☐ mobile zoom is weird + page extends to the left issue
+  ✔ contact page: email text wraps weirdly on moblie @done(21-10-05 20:44)
+  ✔ mobile zoom is weird + page extends to the left issue @done(21-10-05 20:44)
   ✔ 404 Page will use the public/404.html, which is still the firebase default @done(21-09-22 18:30)
   ☐ icon animation, on start every icon jumps once a the same time
   ☐ Linux/Android renders the checkmare and clock emoji different. Should we be concerned?
@@ -62,14 +62,14 @@ Fix:
   ☐ the warnings
   ✔ Maybe don't show the about me link in the NavBar if we're on the about me page to avoid confusion @done(21-10-05 19:59)
   ✔ put the footer in the footer tag @done(21-10-02 14:11)
-  ☐ the mobile navbar link drop down should close on page change or on leave like the language drop down
-  ☐ add a transition to the mobile navbar link drop like the language drop down
+  ✔ the mobile navbar link drop down should close on page change or on leave like the language drop down @done(21-10-05 20:44)
+  ✘ add a transition to the mobile navbar link drop like the language drop down @cancelled(21-10-05 20:44)
   ☐ Make the uncroped profile Image no look as weird, could/should end up on google image search
   ☐ about me text waaaaaayy to long, break it up somehow
   ☐ language selector should have own file
-
-
-
+  ☐ remove translator console.log()
+  ☐ embedded links should work nicely, dunno if they do right now
+  
 Future:
   ☐ Add the projects card back in and fill with some content
   ☐ SEO

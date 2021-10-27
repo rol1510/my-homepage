@@ -1,6 +1,7 @@
 import React from "react";
 import LandingPage from "./pages/LandingPage";
 import ContactPage from "./pages/ContactPage";
+import ProjectsPage from "./pages/ProjectsPage";
 import ErrorPage from "./pages/ErrorPage";
 import CreditPage from "./pages/CreditPage";
 import NavBar from "./components/NavBar";
@@ -30,6 +31,7 @@ function App() {
               <Route exact path="/test" component={Test} />
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/projects" component={ProjectsPage} />
               <Route exact path="/credits" component={CreditPage} />
               <Route>
                 <ErrorPage message="404, Page not found" />

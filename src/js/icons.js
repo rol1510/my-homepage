@@ -1,6 +1,7 @@
 import { ReactComponent as IconHTML } from "../imgs/mini-icon-set-CC3/html5-flat.svg";
 import { ReactComponent as IconCSS } from "../imgs/mini-icon-set-CC3/css-flat.svg";
 import { ReactComponent as IconJavaScript } from "../imgs/mini-icon-set-CC3/javascript.svg";
+import { ReactComponent as IconTypeScript } from "../imgs/mini-icon-set-CC3/typescript.svg";
 import { ReactComponent as IconPython } from "../imgs/mini-icon-set-CC3/python.svg";
 import { ReactComponent as IconReact } from "../imgs/mini-icon-set-CC3/react.svg";
 import { ReactComponent as IconGit } from "../imgs/mini-icon-set-CC3/git.svg";
@@ -25,6 +26,7 @@ const icons = {
   IconHTML,
   IconCSS,
   IconJavaScript,
+  IconTypeScript,
   IconPython,
   IconReact,
   IconGit,

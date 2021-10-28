@@ -335,21 +335,26 @@ class LandingPage extends React.Component {
               />
               <SkillPoint
                 animate={this.state.icons[1]}
+                text="TypeScript"
+                icon={icons.IconTypeScript}
+              />
+              <SkillPoint
+                animate={this.state.icons[2]}
                 text="HTML"
                 icon={icons.IconHTML}
               />
               <SkillPoint
-                animate={this.state.icons[2]}
+                animate={this.state.icons[3]}
                 text="CSS"
                 icon={icons.IconCSS}
               />
               <SkillPoint
-                animate={this.state.icons[3]}
+                animate={this.state.icons[4]}
                 text="React"
                 icon={icons.IconReact}
               />
               <SkillPoint
-                animate={this.state.icons[4]}
+                animate={this.state.icons[5]}
                 text="Tailwind"
                 icon={icons.IconTailwind}
               />
@@ -357,27 +362,27 @@ class LandingPage extends React.Component {
 
             <SkillsContainer title={ts.skills.backend}>
               <SkillPoint
-                animate={this.state.icons[5]}
+                animate={this.state.icons[6]}
                 text="Python"
                 icon={icons.IconPython}
               />
               <SkillPoint
-                animate={this.state.icons[6]}
+                animate={this.state.icons[7]}
                 text="NodeJs"
                 icon={icons.IconNodeJs}
               />
               <SkillPoint
-                animate={this.state.icons[7]}
+                animate={this.state.icons[8]}
                 text="Electron"
                 icon={icons.IconElectron}
               />
               <SkillPoint
-                animate={this.state.icons[8]}
+                animate={this.state.icons[9]}
                 text="Linux"
                 icon={icons.IconLinux}
               />
               <SkillPoint
-                animate={this.state.icons[9]}
+                animate={this.state.icons[10]}
                 text="Windows"
                 icon={icons.IconWindows}
               />
@@ -385,17 +390,17 @@ class LandingPage extends React.Component {
 
             <SkillsContainer title={ts.skills.tooling}>
               <SkillPoint
-                animate={this.state.icons[10]}
+                animate={this.state.icons[11]}
                 text="Git"
                 icon={icons.IconGit}
               />
               <SkillPoint
-                animate={this.state.icons[11]}
+                animate={this.state.icons[12]}
                 text="GitHub"
                 icon={icons.IconGitHub}
               />
               <SkillPoint
-                animate={this.state.icons[12]}
+                animate={this.state.icons[13]}
                 text="NPM"
                 icon={icons.IconNPM}
               />
@@ -403,32 +408,32 @@ class LandingPage extends React.Component {
 
             <SkillsContainer title={ts.skills.other}>
               <SkillPoint
-                animate={this.state.icons[13]}
+                animate={this.state.icons[14]}
                 text="Figma"
                 icon={icons.IconFigma}
               />
               <SkillPoint
-                animate={this.state.icons[14]}
+                animate={this.state.icons[15]}
                 text="Adobe Xd"
                 icon={icons.IconAdobeXd}
               />
               <SkillPoint
-                animate={this.state.icons[15]}
+                animate={this.state.icons[16]}
                 text="Word"
                 icon={icons.IconWord}
               />
               <SkillPoint
-                animate={this.state.icons[16]}
+                animate={this.state.icons[17]}
                 text="Excel"
                 icon={icons.IconExcel}
               />
               <SkillPoint
-                animate={this.state.icons[17]}
+                animate={this.state.icons[18]}
                 text="PowerPoint"
                 icon={icons.IconPowerPoint}
               />
               <SkillPoint
-                animate={this.state.icons[18]}
+                animate={this.state.icons[19]}
                 text="Outlook"
                 icon={icons.IconOutlook}
               />
